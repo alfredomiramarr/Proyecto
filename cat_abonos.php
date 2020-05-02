@@ -61,9 +61,9 @@
 	</div>
 	<div class="topnav">
 	  <a href="section.php">ZONAS</a>
-	  <a class="active" href="cat_cultivos.php">CULTIVOS</a>
+	  <a href="cat_cultivos.php">CULTIVOS</a>
 	  <a href="cat_riego.php">RIEGO</a>
-	  <a href="cat_abonos.php">ABONO</a>
+	  <a class="active" href="cat_abonos.php">ABONO</a>
 	  <a href="cat_plagas.php">PLAGAS</a>
 	  <a href="cat_tratamientos.php">TRATAMIENTOS</a>
 
@@ -75,22 +75,20 @@
 				<form class="login100-form validate-form">
 					<div class="login100-form-logo" align="center">
 						<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
-						<h1>CULTIVOS</h1>
+						<h1>Abono</h1>
 </head>
 			<table>
 					<tr>
 				
-					<th>NOMBRE DE CULTIVO</th>
-					<th>LOCACION</th>
-					<th>TIPO DE CULTIVO</th>
-					<th>CANTIDAD</th>
+					<th>NOMBRE DEL ABONO</th>
+					<th>DESCRIPCIÓN</th>
 					
 					
 					</tr>
 
 					<?php
 					//include("include/conexion.php");
-					$sql = "SELECT * FROM T_Crop;";
+					$sql = "SELECT * FROM T_Fertilizer;";
 					$result = mysqli_query($conexion,$sql);
 
 					if($result) {
@@ -99,13 +97,8 @@
 
 					echo "<tr>";
 					
-					echo "<td> ". $row ["Crop_Name"]. "</td>";
-					echo "<td> ". $row ["Crop_Location"]. "</td>";
-					echo "<td> ". $row ["Crop_Type"]. "</td>";
-					echo "<td> ". $row ["Crop_Quant"]. "</td>";
-					
-					echo "<td> . <a href 'editar.php?no=".$row["Crop_ID"]."'> <button type='submit' class='ed'>Editar</button></a></td>";
-					echo "<td> . <a href 'modificar.php?no=".$row["Crop_ID"]."'> <button type='submit' class='el'>Eliminar</button></a></td>";
+					echo "<td> ". $row ["Name"]. "</td>";
+					echo "<td> ". $row ["Descripción"]. "</td>";
 					
 					
 					echo "</tr>";
@@ -120,13 +113,7 @@
 					?>
 				
 		</table>
-		<div class="text-center p-t-40 p-b-20">
-					<a href="crop.php"class="txt1">
-						New Crop
-					</a>
-				</div>
 		</div>
-		
 					</div>
 				</form>
 			</div>

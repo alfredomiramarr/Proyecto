@@ -62,6 +62,9 @@
 	<div class="topnav">
 	  <a class="active" href="#home">ZONAS</a>
 	  <a href="cat_cultivos.php">CULTIVOS</a>
+	  <a href="cat_riego.php">RIEGO</a>
+	  <a href="cat_abonos.php">ABONO</a>
+	  <a href="cat_plagas.php">PLAGAS</a>
 	  <a href="cat_tratamientos.php">TRATAMIENTOS</a>
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
