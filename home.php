@@ -1,8 +1,8 @@
 <?php
 
-	//ini_set('display_errors', 1);
-	//ini_set('display_startup_errors', 1);
-	//error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
 	
 	session_start();
 	
@@ -38,6 +38,7 @@
 	<header align="center" background="FFFBB5">
 	<a href="/NewProyect"> CHIQUITA BANANA  </a>
 	<img src="images/icon-banana.png" alt="Chiquita Banana" height="52" width="52">
+	<a href="logout.php" align="right">LOGOUT</a>
 	
 	</header>
 <!--===============================================================================================-->	
@@ -65,11 +66,11 @@
 <!--===============================================================================================-->
 </head>
 <body>
-
 	<?php if(!empty($user)):
-	echo "WELCOME'".$row['Admin_name']."' '".$row['Admin_Last_Name'];?>
-	<br> YOU ARE SUCCESSFULLY LOGGED IN
-	<a href="logout.php">LOGOUT</a>
+		//echo "BIENVENIDO";
+
+	 ?>
+	
 	
 	<?php endif; ?>
 

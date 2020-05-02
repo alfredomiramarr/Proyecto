@@ -1,15 +1,15 @@
 <?php
 
-	//ini_set('display_errors', 1);
-	//ini_set('display_startup_errors', 1);
-	//error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
 	
 	require "conexion.php";
 	
-	$cropName = htmlspecialchars($_POST['crop_name']);
-	$cropLocation = htmlspecialchars($_POST["crop_location"]);
-	$cropType = htmlspecialchars($_POST["crop_type"]);
-	$cropQuant = htmlspecialchars($_POST["crop_quantity"]);
+	$cropName = htmlspecialchars($_POST['Crop_Name']);
+	$cropLocation = htmlspecialchars($_POST["Crop_Location"]);
+	$cropType = htmlspecialchars($_POST["Crop_Type"]);
+	$cropQuant = htmlspecialchars($_POST["Crop_Quant"]);
 
 	echo $cropName;
 	echo $cropLocation;
@@ -41,6 +41,7 @@ mysqli_close($conexion);
 	<header align="center" background="FFFBB5">
 	<a href="home.php"> CHIQUITA BANANA  </a>
 	<img src="images/icon-banana.png" alt="Chiquita Banana" height="52" width="52">
+	<a href="logout.php" align="right">LOGOUT</a>
 	
 	</header>
 <!--===============================================================================================-->	

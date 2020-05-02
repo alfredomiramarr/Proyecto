@@ -164,6 +164,12 @@ iframe {
   position: relative;
   z-index: 1;
 }
+.container-login100 p{
+  display: block;
+  text-align: center;
+  align-items: center;
+
+}
 
 .container-login100::before {
   content: "";

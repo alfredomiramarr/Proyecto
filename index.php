@@ -1,7 +1,7 @@
 <?php
-	//ini_set('display_errors', 1);
-	//ini_set('display_startup_errors', 1);
-	//error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
 	
 	
 	session_start();
@@ -30,7 +30,7 @@
 		$message = '';
 	
 		if($rowcount>0 && $_POST['pass']=$row['Admin_Password']){
-			echo "Entro el IF ".$row['User_ID'];
+			echo "Entro el ID ".$row['User_ID'];
 			$_SESSION['User_ID'] = $row['User_ID'];
 			header('Location: home.php');
 		}else{
@@ -38,7 +38,7 @@
 		}
 	}
 	
-	echo $_SESSION['User_ID']."SESION";
+	//echo $_SESSION['User_ID']."SESION";
 	//echo "EMAIL".$_POST['email'];
 	//echo "PASSWORD".$_POST['pass'];
 ?>
@@ -48,7 +48,7 @@
 	<title>CHIQUITA BANANA</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<header>
+	<header align="center">
 	
 	<a> CHIQUITA BANANA </a>
 	<img src="images/icon-banana.png" alt="MILO" height="52" width="52">
@@ -104,7 +104,7 @@
 				</div>
 
 				<div class="container-login100-form-btn">
-					<button type="submit"  name="sub_button" value="Send" class="login100-form-btn">
+					<button type="submit"  name="sub_button" onclick="alert('YOU ARE SUCCESSFULLY LOGGED IN')" value="Send" class="login100-form-btn">
 						Sign In
 					</button>
 				</div>

@@ -1,13 +1,16 @@
+
 /* Add a black background color to the top navigation */
-.topnav {
+.menu {
   background-color: #7CDEFE;
   overflow: hidden;
   margin: 5;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  display: inline-block;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
+.menu a {
   float: left;
   color: #000000;
   text-align: right;
@@ -17,15 +20,17 @@
 }
 
 /* Change the color of links on hover */
-.topnav a:hover {
+.menu a:hover {
   background-color: #FFFBB5;
   color: black;
-  opacity: 0.5;
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
+.menu a.active-menu {
   background-color: #FFD74F;
   color: white;
 }
-
+.menu img{
+		width: 60px;
+		height: 60px;
+	}
