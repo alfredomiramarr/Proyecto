@@ -65,6 +65,7 @@
 	  <a href="cat_riego.php">RIEGO</a>
 	  <a href="cat_abonos.php">ABONO</a>
 	  <a href="cat_plagas.php">PLAGAS</a>
+	  <a href="cat_cosecha.php">COSECHA</a>
 	  <a class="active" href="cat_tratamientos.php">TRATAMIENTOS</a>
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">

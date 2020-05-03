@@ -60,12 +60,12 @@
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 	</div>
 	<div class="topnav">
-	  <a class="active" href="#home">ZONAS</a>
+	  <a href="section.php">ZONAS</a>
 	  <a href="cat_cultivos.php">CULTIVOS</a>
 	  <a href="cat_riego.php">RIEGO</a>
 	  <a href="cat_abonos.php">ABONO</a>
 	  <a href="cat_plagas.php">PLAGAS</a>
-	  <a href="cat_cosecha.php">COSECHA</a>
+	  <a class="active" href="cat_cosecha.php">COSECHA</a>
 	  <a href="cat_tratamientos.php">TRATAMIENTOS</a>
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
@@ -76,18 +76,18 @@
 				<form class="login100-form validate-form">
 					<div class="login100-form-logo" align="center">
 						<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
-						<h1>ZONAS</h1>
+						<h1>COSECHA</h1>
 </head>
 			<table>
 					<tr>
-					<th>ID</th>
-					<th>ZONA</th>
+					
+					<th>DIA DE COSECHA</th>					
 					
 					</tr>
 
 					<?php
 					//include("include/conexion.php");
-					$sql = "SELECT * FROM T_Zone;";
+					$sql = "SELECT * FROM T_Harvest;";
 					$result = mysqli_query($conexion,$sql);
 
 					if($result) {
@@ -95,8 +95,8 @@
 					while ($row =mysqli_fetch_assoc($result)){
 
 					echo "<tr>";
-					echo "<td> ". $row ["Zone_ID"]. "</td>";
-					echo "<td> ". $row ["Zone"]. "</td>";
+					
+					echo "<td> ". $row ["Harvest_Date"]. "</td>";
 					
 					echo "</tr>";
 					}
