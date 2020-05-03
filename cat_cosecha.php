@@ -16,7 +16,6 @@
 	<header align="center" background="FFFBB5">
 	<a href="alfredo/NewProyect/home.php"> CHIQUITA BANANA  </a>
 	<img src="images/icon-banana.png" alt="Chiquita Banana" height="52" width="52">
-	<a href="logout.php" align="right" color="blue">SALIR</a>
 	
 	</header>
 <!--===============================================================================================-->	
@@ -41,91 +40,54 @@
 	<link rel="stylesheet" type="text/css" href="style/css/util.css">
 	<link rel="stylesheet" type="text/css" href="style/css/main.css">
 	<link rel="stylesheet" href="style/css/menu-bar.css">
-	<link rel="stylesheet" href="style/css/menu-bar2.css">
 <!--===============================================================================================-->
 </head>
 <body>
 
+	<?php if(!empty($user)):
+	//echo "WELCOME'".$row['Admin_name']."' '".$row['Admin_Last_Name'];?>
+	<br> YOU ARE SUCCESSFULLY LOGGED IN
+	<a href="logout.php">LOGOUT</a>
+	
+	<?php endif; ?>
+
+
 	<div class="topnav">
-	  <a href="home.php">Inicio</a>
-	  <a href="new_cultivo.php">Nuevo Registro</a>
-	  <a class="active"href="#contact">Catálogos</a>
+	  <a href="home.php">Home</a>
+	  <a href="crop.php">New Crop</a>
+	  <a class="active"href="#contact">Catalogos</a>
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 	</div>
-	<p> </p>
-	<style>
-			/* Add a black background color to the top navigation */
-	.menu {
-		background-color: #FFD74F;
-		shape-margin: 10px;
-	  	overflow: hidden;
-	  	margin: 5;
-	  	display: block;
-		text-align: center;
-		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	}
-
-	/* Style the links inside the navigation bar */
-	.menu a {
-	  float: center;
-	  color: #000000;
-	  text-align: center;
-	  padding: 20px 20px;
-	  text-decoration: none;
-	  font-size: 15px;
-	  text-align: center;
-	  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	}
-
-	/* Change the color of links on hover */
-	.menu a:hover {
-	  background-color: #FFFBB5;
-	  color: black;
-	  opacity: 0.7;
-	}
-
-	/* Add a color to the active/current link */
-	.menu a.active {
-	  background-color: #E7AAFA;
-	  color: white;
-	}
-	.menu img{
-			width: 60px;
-			height: 60px;
-		}
-	</style>
-	<div class="menu" align="center">
-	  <a href="cat_zonas.php">ZONAS</a>
-	  <a class="active " href="cat_cultivos.php">CULTIVOS</a>
+	<div class="topnav">
+	  <a href="section.php">ZONAS</a>
+	  <a href="cat_cultivos.php">CULTIVOS</a>
 	  <a href="cat_riego.php">RIEGO</a>
 	  <a href="cat_abonos.php">ABONO</a>
 	  <a href="cat_plagas.php">PLAGAS</a>
-	  <a href="cat_cosecha.php">COSECHA</a>
+	  <a class="active" href="cat_cosecha.php">COSECHA</a>
 	  <a href="cat_tratamientos.php">TRATAMIENTOS</a>
 
+	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 	</div>
+		
 		<div class="container-login100" style="background-image: url('images/banana-back.jpg');">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-30 p-b-30">
 				<form class="login100-form validate-form">
 					<div class="login100-form-logo" align="center">
 						<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
-						<h1>CULTIVOS</h1>
+						<h1>COSECHA</h1>
 </head>
 			<table>
 					<tr>
-				
-					<th>NOMBRE DE CULTIVO</th>
-					<th>LOCACION</th>
-					<th>TIPO DE CULTIVO</th>
-					<th>CANTIDAD</th>
 					
+					<th>DIA DE COSECHA</th>					
 					
 					</tr>
 
 					<?php
 					//include("include/conexion.php");
-					$sql = "SELECT * FROM T_Crop;";
+					$sql = "SELECT * FROM T_Harvest;";
 					$result = mysqli_query($conexion,$sql);
 
 					if($result) {
@@ -134,14 +96,7 @@
 
 					echo "<tr>";
 					
-					echo "<td> ". $row ["Crop_Name"]. "</td>";
-					echo "<td> ". $row ["Crop_Location"]. "</td>";
-					echo "<td> ". $row ["Crop_Type"]. "</td>";
-					echo "<td> ". $row ["Crop_Quant"]. "</td>";
-					
-					echo "<td> . <a href 'editar.php?no=".$row["Crop_ID"]."'> <button type='submit' class='ed'>Editar</button></a></td>";
-					echo "<td> . <a href 'modificar.php?no=".$row["Crop_ID"]."'> <button type='submit' class='el'>Eliminar</button></a></td>";
-					
+					echo "<td> ". $row ["Harvest_Date"]. "</td>";
 					
 					echo "</tr>";
 					}
@@ -153,15 +108,9 @@
 					echo "Error";
 					}
 					?>
-				
+
 		</table>
-		<div class="text-center p-t-40 p-b-20">
-					<a href="crop.php"class="txt1">
-						New Crop
-					</a>
-				</div>
 		</div>
-		
 					</div>
 				</form>
 			</div>

@@ -100,6 +100,7 @@
 	  <a href="cat_riego.php">RIEGO</a>
 	  <a href="cat_abonos.php">ABONO</a>
 	  <a href="cat_plagas.php">PLAGAS</a>
+	  <a href="cat_cosecha.php">COSECHA</a>
 	  <a class="active" href="cat_tratamientos.php">TRATAMIENTOS</a>
 
 	</div>
