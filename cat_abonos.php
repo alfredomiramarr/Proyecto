@@ -16,7 +16,7 @@
 	<header align="center" background="FFFBB5">
 	<a href="alfredo/NewProyect/home.php"> CHIQUITA BANANA  </a>
 	<img src="images/icon-banana.png" alt="Chiquita Banana" height="52" width="52">
-	<a href="logout.php">LOGOUT</a>
+	<a href="logout.php">SALIR</a>
 	
 	</header>
 <!--===============================================================================================-->	
@@ -51,9 +51,9 @@
 
 
 	<div class="topnav">
-	  <a href="home.php">Home</a>
-	  <a href="crop.php">New Crop</a>
-	  <a class="active"href="#contact">Catalogos</a>
+	  <a href="home.php">Inicio</a>
+	  <a href="new_cultivo.php">Nuevo Registro</a>
+	  <a class="active"href="#contact">Catálogos</a>
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 	</div>
@@ -99,7 +99,7 @@
 		}
 	</style>
 	<div class="menu">
-	  <a href="section.php">ZONAS</a>
+	  <a href="cat_zonas.php">ZONAS</a>
 	  <a href="cat_cultivos.php">CULTIVOS</a>
 	  <a href="cat_riego.php">RIEGO</a>
 	  <a class="active" href="cat_abonos.php">ABONO</a>

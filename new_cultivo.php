@@ -1,34 +1,8 @@
 <?php
-
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
-	
-	session_start();
-	
-	require 'conexion.php';
-	
-	if(isset($_SESSION['Admin_Email'])){
-		//$records = $conexion->prepare("SELECT User_ID, Admin_ID, Admin_name, Admin_Last_Name, Admin_Email, Admin_Password FROM T_Admin
-		//WHERE User_ID=:id")
-		$sql2="SELECT User_ID, Admin_ID, Admin_name, Admin_Last_Name, Admin_Email, Admin_Password FROM T_Admin
-		WHERE Admin_Email='".$_POST['email']."' limit 1";
-		//$records->bindParam(':id', $_SESSION['User_ID']);
-		//$records->execute();
-		//$results = $records->fetch(PDO::FETCH_ASSOC);
-		$result = mysqli_query($conexion,$sql2);
-
-		$row = mysqli_fetch_assoc($result);
-		$rowcount=mysqli_num_rows($result);
-		
-		$user = null;
-		if($rowcount > 0){
-			$user = $row;
-		}
-	}
-	
-?>
-
+	?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,9 +10,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<header align="center" background="FFFBB5">
-	<a href="/NewProyect"> CHIQUITA BANANA  </a>
+	<a href="home.php"> CHIQUITA BANANA  </a>
 	<img src="images/icon-banana.png" alt="Chiquita Banana" height="52" width="52">
-	<a href="logout.php" align="right">LOGOUT</a>
+	<a href="logout.php" align="right">SALIR</a>
 	
 	</header>
 <!--===============================================================================================-->	
@@ -66,34 +40,56 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	<?php if(!empty($user)):
-		//echo "BIENVENIDO";
+<div class="topnav">
+  <a href="home.php">Inicio</a>
+  <a class="active" href="#news">Nuevo Registro</a>
+  <a href="cat_zonas.php">Catálogos</a>
 
-	 ?>
+  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
+</div>
 	
-	
-	<?php endif; ?>
+	<div class="container-login100" style="background-image: url('images/banana-crop.jpg');">
+		<div class="wrap-login100 p-l-50 p-r-50 p-t-30 p-b-30">
+			<form class="login100-form validate-form" method="POST" action="alta_cultivo.php">
+				<div class="login100-form-logo" align="center">
+					<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
+				</div>
+				<span class="login100-form-title p-b-37">
+					New Crop
+				</span>
 
+				<div class="wrap-input100 validate-input m-b-20" >
+					<input class="input100" type="text" name="n" placeholder="Nombre del cultivo" required="required">
+					<span class="focus-input100"></span>
+				</div>
 
-	<div class="topnav">
-	  <a class="active" href="#home">Inicio</a>
-	  <a href="new_cultivo.php">Nuevo Registro</a>
-	  <a href="cat_zonas.php">Catálogos</a>
+				<div class="wrap-input100 validate-input m-b-25" >
+					<input class="input100" type="text" name="l" placeholder="Zona del cultivo" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input m-b-20" >
+					<input class="input100" type="text" name="t" placeholder="Tipo de cultivo" required="required">
+					<span class="focus-input100"></span>
+				</div>
 
-	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
-	</div>
-		
-		<div class="container-login100" style="background-image: url('images/banana-back.jpg');">
-			<div class="wrap-login100 p-l-50 p-r-50 p-t-30 p-b-30">
-				<form class="login100-form validate-form">
-					<div class="login100-form-logo" align="center">
-						<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
-					</div>
-				</form>
-			</div>
+				<div class="wrap-input100 validate-input m-b-25" >
+					<input class="input100" type="text" name="q" placeholder="Cantidad sembrada" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				
+				
+				
+				<div class="container-login100-form-btn">
+					<button type="submit"  name="sub_button" value="Add" class="login100-form-btn">
+						Registrar Cultivo
+					</button>
+
+				</div>
+			</form>
 		</div>
-		
-		<div id="dropDownSelect1"></div>
+	</div>
+	
+	<div id="dropDownSelect1"></div>
 
 </body>
 </html>

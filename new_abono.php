@@ -41,7 +41,7 @@ mysqli_close($conexion);
 	<header align="center" background="FFFBB5">
 	<a href="home.php"> CHIQUITA BANANA  </a>
 	<img src="images/icon-banana.png" alt="Chiquita Banana" height="52" width="52">
-	<a href="logout.php" align="right">LOGOUT</a>
+	<a href="logout.php" align="right">SALIR</a>
 	
 	</header>
 <!--===============================================================================================-->	
@@ -70,9 +70,9 @@ mysqli_close($conexion);
 </head>
 <body>
 <div class="topnav">
-  <a href="home.php">Home</a>
-  <a class="active" href="#news">New Crop</a>
-  <a href="section.php">Catalogos</a>
+  <a href="home.php">Inicio</a>
+  <a class="active" href="#news">Nuevo Registro</a>
+  <a href="cat_zonas.php">Catálogos</a>
 
   <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 </div>
