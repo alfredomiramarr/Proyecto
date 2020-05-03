@@ -18,10 +18,11 @@
 	$objetoVO = new cultivosVO();
 	$objetoDAO = new cultivosDAO();
 
-	$objetoVO->setAll(0, $nombre, $location, $tipo, $cantidad);
+	$objetoVO->setAll(0, 0, $nombre, $location, $tipo, $cantidad);
 	$bandera=$objetoDAO->Insert($objetoVO);
 
 	if($bandera) {
+		//echo "LISTO"
 		header('Location: cat_cultivos.php');
 	} else {
 		//echo "Registro No inserado";

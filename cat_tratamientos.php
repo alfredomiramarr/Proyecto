@@ -47,8 +47,8 @@
 
 	<div class="topnav">
 	  <a href="home.php">Inicio</a>
-	  <a href="new_cultivo.php">Nuevo Registro</a>
-	  <a class="active"href="#contact">Catálogos</a>
+	  <a href="new_zona.php">Nuevo Registro</a>
+	  <a class="active"href="#">Catálogos</a>
 	  
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
@@ -101,7 +101,7 @@
 	  <a href="cat_abonos.php">ABONO</a>
 	  <a href="cat_plagas.php">PLAGAS</a>
 	  <a href="cat_cosecha.php">COSECHA</a>
-	  <a class="active" href="cat_tratamientos.php">TRATAMIENTOS</a>
+	  <a class="active" href="#">TRATAMIENTOS</a>
 
 	</div>
 		

@@ -1,12 +1,12 @@
 <?php
-require_once("PokemonVO.php");
+require_once("tratamientoVO.php");
 
-class PokemonDAO {
+class tratamientoDAO {
 	
 	private $host = "localhost";
-	private $user = "sepherot_test";
-	private $password = "test5";
-	private $database = "sepherot_BD";
+	private $user = "sepherot_javier";
+	private $password = "Pzk6IDs4by";
+	private $database = "sepherot_javierBD";
 	private $conn;
 	
 	function __construct() {
@@ -19,11 +19,11 @@ class PokemonDAO {
 	}
 	
 	function selectAll() {
-		$sql = "SELECT * FROM T_Pokemon";
+		$sql = "SELECT * FROM T_Care";
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
-			$vo = new PokemonVO();
-			$vo->setAll($fila['ID_Pokemon'],$fila['Pok_Nombre'],$fila['Pok_Tipo'],$fila['Pok_Nivel'],$fila['Pok_Foto']);
+			$vo = new tratamientoVO();
+			$vo->setAll($fila['Care_ID'],$fila['Irrigation_ID'],$fila['Fertilizer_ID'],$fila['Plague_ID']/*,$fila['Harvest_ID']*/,$fila['Trafic_Light_ID'],$fila['Care_Name'],$fila['Care_Tipe']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,7 +33,7 @@ class PokemonDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_Pokemon (Pok_Nombre, Pok_Tipo, Pok_Nivel, Pok_Foto) VALUES ('".$vo->getNombre()."','".$vo->getTipo()."',".$vo->getNivel().",'".$vo->getImagen()."')";
+		$sql = "INSERT INTO T_Care (Care_Name, Care_Tipe) VALUES ('".$vo->getNombre()."','".$vo->getTipo()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;
@@ -44,14 +44,17 @@ class PokemonDAO {
 	
 }
 
-/*
-echo "DAO -";
-$objeto = new PokemonDAO();
-//print_r($objeto->selectAll());
 
-$vo = new PokemonVO();
-$vo->setAll(0,"Pikachu","Electrico","35","who.jpg");
+echo "DAO -";
+$objeto = new tratamientoDAO();
+print_r($objeto->selectAll());
+echo "________________";
+$vo = new tratamientoVO();
+$vo->setAll(0, 0, 0, 0, 0,"Pikachu","Electrico");
+echo "SE SUPONE AQUI SE HACE EL INSERT";
 $objeto->Insert($vo);
-*/
+echo "AQUI YA SE HIZO PERO NEL";
+print_r($objeto->selectAll());
+
 
 ?>

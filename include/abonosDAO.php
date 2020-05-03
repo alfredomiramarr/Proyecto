@@ -1,12 +1,12 @@
 <?php
-require_once("PokemonVO.php");
+require_once("abonosVO.php");
 
-class PokemonDAO {
+class abonosDAO {
 	
 	private $host = "localhost";
-	private $user = "sepherot_test";
-	private $password = "test5";
-	private $database = "sepherot_BD";
+	private $user = "sepherot_javier";
+	private $password = "Pzk6IDs4by";
+	private $database = "sepherot_javierBD";
 	private $conn;
 	
 	function __construct() {
@@ -19,11 +19,11 @@ class PokemonDAO {
 	}
 	
 	function selectAll() {
-		$sql = "SELECT * FROM T_Pokemon";
+		$sql = "SELECT * FROM T_Fertilizer";
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
-			$vo = new PokemonVO();
-			$vo->setAll($fila['ID_Pokemon'],$fila['Pok_Nombre'],$fila['Pok_Tipo'],$fila['Pok_Nivel'],$fila['Pok_Foto']);
+			$vo = new abonosVO();
+			$vo->setAll($fila['Fertilizer_ID'],$fila['Name'],$fila['F_Desc']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,7 +33,7 @@ class PokemonDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_Pokemon (Pok_Nombre, Pok_Tipo, Pok_Nivel, Pok_Foto) VALUES ('".$vo->getNombre()."','".$vo->getTipo()."',".$vo->getNivel().",'".$vo->getImagen()."')";
+		$sql = "INSERT INTO T_Fertilizer (Name, F_Desc) VALUES ('".$vo->getNombre()."','".$vo->getDescrip()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

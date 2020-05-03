@@ -6,30 +6,6 @@
 	
 	require "conexion.php";
 	
-	$cropName = htmlspecialchars($_POST['Crop_Name']);
-	$cropLocation = htmlspecialchars($_POST["Crop_Location"]);
-	$cropType = htmlspecialchars($_POST["Crop_Type"]);
-	$cropQuant = htmlspecialchars($_POST["Crop_Quant"]);
-
-	echo $cropName;
-	echo $cropLocation;
-	echo $cropType;
-	echo $cropQuant;
-	
-	if(!empty($_POST['crop_name']) && !empty($_POST['crop_location']) && !empty($_POST['crop_type']) && !empty($_POST['crop_quantity'])) {
-		$sql= "INSERT INTO T_Crop (Crop_Name, Crop_Location, Crop_Type, Crop_Quant) 
-		VALUES ('".$cropName."', '".$cropLocation."', '".$cropType."', '".$cropQuant."')";
-	}
-	echo $sql;
-
-	$result = $conexion->query($sql);
-
-	if($result){
-		echo "Registroo insertado correctamente.";
-		} else {
-			echo "Fallo al insertar";
-			}
-
 mysqli_close($conexion);
 ?>
 <!DOCTYPE html>
@@ -71,46 +47,85 @@ mysqli_close($conexion);
 <body>
 <div class="topnav">
   <a href="home.php">Inicio</a>
-  <a class="active" href="#news">Nuevo Registro</a>
+  <a class="active" href="#">Nuevo Registro</a>
   <a href="cat_zonas.php">Catálogos</a>
 
   <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 </div>
+<style>
+			/* Add a black background color to the top navigation */
+	.menu {
+		background-color: #FFD74F;
+		shape-margin: 10px;
+	  	overflow: hidden;
+	  	margin: 5;
+	  	display: block;
+		text-align: center;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	}
+
+	/* Style the links inside the navigation bar */
+	.menu a {
+	  float: center;
+	  color: #000000;
+	  text-align: center;
+	  padding: 20px 20px;
+	  text-decoration: none;
+	  font-size: 15px;
+	  text-align: center;
+	  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	}
+
+	/* Change the color of links on hover */
+	.menu a:hover {
+	  background-color: #FFFBB5;
+	  color: black;
+	  opacity: 0.7;
+	}
+
+	/* Add a color to the active/current link */
+	.menu a.active {
+	  background-color: #E7AAFA;
+	  color: white;
+	}
+	.menu img{
+			width: 60px;
+			height: 60px;
+		}
+	</style>
+	<div class="menu">
+	  <a href="new_zona.php">ZONAS</a>
+	  <a href="new_cultivo.php">CULTIVO</a>
+	  <a href="new_riego.php">RIEGO</a>
+	  <a href="new_abono.php">ABONO</a>
+	  <a class="active" href="#">PLAGA</a>
+	  <a href="new_cosecha.php">COSECHA</a>
+	  <a href="new_tratamiento.php">TRATAMIENTOS</a>
+
+	</div>
 	
 	<div class="container-login100" style="background-image: url('images/banana-crop.jpg');">
 		<div class="wrap-login100 p-l-50 p-r-50 p-t-30 p-b-30">
-			<form class="login100-form validate-form" method="post" action="">
+			<form class="login100-form validate-form" method="post" action="alta_plaga.php">
 				<div class="login100-form-logo" align="center">
 					<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
 				</div>
 				<span class="login100-form-title p-b-37">
-					New Crop
+					Nueva Plaga
 				</span>
 
-				<div class="wrap-input100 validate-input m-b-20" >
-					<input class="input100" type="crop_name" name="crop_name" placeholder="Crop Name" required="required">
-					<span class="focus-input100"></span>
-				</div>
-
 				<div class="wrap-input100 validate-input m-b-25" >
-					<input class="input100" type="crop_location" name="crop_location" placeholder="Crop Location" required="required">
+					<input class="input100" type="text" name="n" placeholder="Nombre de la plaga" required="required">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input100 validate-input m-b-20" >
-					<input class="input100" type="crop_type" name="crop_type" placeholder="Crop Type" required="required">
+					<input class="input100" type="text" name="d" placeholder="Descripción" required="required">
 					<span class="focus-input100"></span>
 				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" >
-					<input class="input100" type="crop_quantity" name="crop_quantity" placeholder="Crop Quantity" required="required">
-					<span class="focus-input100"></span>
-				</div>
-				
-				
 				
 				<div class="container-login100-form-btn">
 					<button type="submit"  name="sub_button" value="Add" class="login100-form-btn">
-						Add Crop
+						Registrar
 					</button>
 				</div>
 			</form>

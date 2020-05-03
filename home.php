@@ -77,7 +77,7 @@
 
 	<div class="topnav">
 	  <a class="active" href="#home">Inicio</a>
-	  <a href="new_cultivo.php">Nuevo Registro</a>
+	  <a href="new_zona.php">Nuevo Registro</a>
 	  <a href="cat_zonas.php">Catálogos</a>
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">

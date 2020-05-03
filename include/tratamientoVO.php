@@ -5,21 +5,39 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-class PokemonVO {
+class tratamientoVO {
 	
 	//ATRIBUTOS
 	
-	private $id;
+	private $careId;
+	private $riegoId;
+	private $abonoId;
+	private $plagaId;
+	//private $cosechaId;
+	private $semaforoId;
 	private $nombre;
 	private $tipo;
-	private $nivel;
-	private $imagen;
 	
 	//METODOS
 	
 	//SET
-	public function setId($valor) {
-		$this->id = $valor;
+	public function setCareId($valor) {
+		$this->careId = $valor;
+	}
+	public function setRiegoId($valor) {
+		$this->riegoId = $valor;
+	}
+	public function setAbonoId($valor) {
+		$this->abonoId = $valor;
+	}
+	public function setPlagaId($valor) {
+		$this->plagaId = $valor;
+	}
+	/*public function setCosechaId($valor) {
+		$this->cosechaId = $valor;
+	}*/
+	public function setSemaforoId($valor) {
+		$this->semaforoId = $valor;
 	}
 	public function setNombre($valor) {
 		$this->nombre = $valor;
@@ -27,25 +45,41 @@ class PokemonVO {
 	public function setTipo($valor) {
 		$this->tipo = $valor;
 	}
-	public function setNivel($valor) {
-		$this->nivel = $valor;
-	}
-	public function setImagen($valor) {
-		$this->imagen = $valor;
-	}
 	
-	public function setAll($id, $name, $type, $level, $image) {
-		$this->id = $id;
-		$this->nombre = $name;
-		$this->tipo = $type;
-		$this->nivel = $level;
-		$this->imagen = $image;
+	public function setAll($careId, $riegoId, $abonoId, $plagaId,/* $cosechaId,*/ $semaforoId, $nombre, $tipo) {
+		$this->careId = $careId;
+		$this->riegoId = $riegoId;
+		$this->abonoId = $abonoId;
+		$this->plagaId = $plagaId;
+		/*$this->cosechaId = $cosechaId;*/
+		$this->semaforoId = $semaforoId;
+		$this->nombre = $nombre;
+		$this->tipo = $tipo;
 	}
 	
 	//GET - Recuperar
 	
-	public function getId() {
-		return $this->id;
+	public function getCareId() {
+		return $this->careId;
+	} 
+	
+	public function getRiegoId() {
+		return $this->riegoId;
+	} 
+	
+	public function getAbonoId() {
+		return $this->abonoId;
+	} 
+	
+	public function getPlagaId() {
+		return $this->plagaId;
+	} 
+	
+	/*public function getCosechaId() {
+		return $this->cosechaId;
+	}*/
+	public function getSemaforoId() {
+		return $this->semaforoId;
 	} 
 	
 	public function getNombre() {
@@ -54,15 +88,7 @@ class PokemonVO {
 	
 	public function getTipo() {
 		return $this->tipo;
-	} 
-	
-	public function getNivel() {
-		return $this->nivel;
-	} 
-	
-	public function getImagen() {
-		return $this->imagen;
-	} 
+	}  
 	
 }
 

@@ -10,6 +10,7 @@ class cultivosVO {
 	//ATRIBUTOS
 	
 	private $id;
+	private $careId;
 	private $name;
 	private $location;
 	private $type;
@@ -20,6 +21,9 @@ class cultivosVO {
 	//SET
 	public function setId($valor) {
 		$this->id = $valor;
+	}
+	public function setCareId($valor) {
+		$this->careId = $valor;
 	}
 	public function setName($valor) {
 		$this->name = $valor;
@@ -34,8 +38,9 @@ class cultivosVO {
 		$this->quant = $valor;
 	}
 	
-	public function setAll($id, $name, $location, $type, $quant) {
+	public function setAll($id, $careId, $name, $location, $type, $quant) {
 		$this->id = $id;
+		$this->careId = $careId;
 		$this->name = $name;
 		$this->location = $location;
 		$this->type = $type;
@@ -46,6 +51,10 @@ class cultivosVO {
 	
 	public function getId() {
 		return $this->id;
+	} 
+	
+	public function getCareId() {
+		return $this->careId;
 	} 
 	
 	public function getName() {

@@ -5,13 +5,12 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-class abonosVO {
+class cosechasVO {
 	
 	//ATRIBUTOS
 	
 	private $id;
-	private $nombre;
-	private $descrip;
+	private $date;
 	
 	//METODOS
 	
@@ -19,18 +18,13 @@ class abonosVO {
 	public function setId($valor) {
 		$this->id = $valor;
 	}
-	public function setNombre($valor) {
-		$this->nombre = $valor;
+	public function setDate($valor) {
+		$this->date = $valor;
 	}
-	public function setDescrip($valor) {
-		$this->descrip = $valor;
-	}
-
 	
-	public function setAll($id, $name, $descrip) {
+	public function setAll($id, $date) {
 		$this->id = $id;
-		$this->nombre = $name;
-		$this->descrip = $descrip;
+		$this->date = $date;
 	}
 	
 	//GET - Recuperar
@@ -39,12 +33,8 @@ class abonosVO {
 		return $this->id;
 	} 
 	
-	public function getNombre() {
-		return $this->nombre;
-	} 
-	
-	public function getDescrip() {
-		return $this->descrip;
+	public function getDate() {
+		return $this->date;
 	} 
 	
 }

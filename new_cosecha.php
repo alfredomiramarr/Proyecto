@@ -4,8 +4,9 @@
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 	
-	require 'conexion.php';
+	require "conexion.php";
 
+	//mysqli_close($conexion);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +15,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<header align="center" background="FFFBB5">
-	<a href="alfredo/NewProyect/home.php"> CHIQUITA BANANA  </a>
+	<a href="home.php"> CHIQUITA BANANA  </a>
 	<img src="images/icon-banana.png" alt="Chiquita Banana" height="52" width="52">
-	<a href="logout.php">SALIR</a>
+	<a href="logout.php" align="right">SALIR</a>
 	
 	</header>
 <!--===============================================================================================-->	
@@ -44,21 +45,14 @@
 <!--===============================================================================================-->
 </head>
 <body>
+<div class="topnav">
+  <a href="home.php">Inicio</a>
+  <a class="active" href="#">Nuevo Registro</a>
+  <a href="cat_zonas.php">Catálogos</a>
 
-	<?php if(!empty($user)):
-	//echo "WELCOME'".$row['Admin_name']."' '".$row['Admin_Last_Name'];?
-	?>
-	<?php endif; ?>
-
-
-	<div class="topnav">
-	  <a href="home.php">Inicio</a>
-	  <a href="new_zona.php">Nuevo Registro</a>
-	  <a class="active"href="#">Catálogos</a>
-
-	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
-	</div>
-	<style>
+  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
+</div>
+<style>
 			/* Add a black background color to the top navigation */
 	.menu {
 		background-color: #FFD74F;
@@ -100,61 +94,41 @@
 		}
 	</style>
 	<div class="menu">
-	  <a href="cat_zonas.php">ZONAS</a>
-	  <a href="cat_cultivos.php">CULTIVOS</a>
-	  <a class="active" href="cat_riego.php">RIEGO</a>
-	  <a href="cat_abonos.php">ABONO</a>
-	  <a href="cat_plagas.php">PLAGAS</a>
-	  <a href="cat_cosecha.php">COSECHA</a>
-	  <a href="cat_tratamientos.php">TRATAMIENTOS</a>
+	  <a href="new_zona.php">ZONAS</a>
+	  <a href="new_cultivo.php">CULTIVO</a>
+	  <a href="new_riego.php">RIEGO</a>
+	  <a href="new_abono.php">ABONO</a>
+	  <a href="new_plaga.php">PLAGA</a>
+	  <a class="active" href="#">COSECHA</a>
+	  <a href="new_tratamiento.php">TRATAMIENTOS</a>
+
 	</div>
-		
-		<div class="container-login100" style="background-image: url('images/banana-back.jpg');">
-			<div class="wrap-login100 p-l-50 p-r-50 p-t-30 p-b-30">
-				<form class="login100-form validate-form">
-					<div class="login100-form-logo" align="center">
-						<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
-						<h1>Riego</h1>
-</head>
-			<table>
-					<tr>
-					<th>FRECUENCIA</th>
-					<th>CANTIDAD</th>
-					
-					</tr>
+	
+	<div class="container-login100" style="background-image: url('images/banana-crop.jpg');">
+		<div class="wrap-login100 p-l-50 p-r-50 p-t-30 p-b-30">
+			<form class="login100-form validate-form" method="post" action="alta_cosecha.php">
+				<div class="login100-form-logo" align="center">
+					<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
+				</div>
+				<span class="login100-form-title p-b-37">
+					Nueva Cosecha
+				</span>
 
-					<?php
-					//include("include/conexion.php");
-					$sql = "SELECT * FROM T_Irrigation;";
-					$result = mysqli_query($conexion,$sql);
-
-					if($result) {
-
-					while ($row =mysqli_fetch_assoc($result)){
-
-					echo "<tr>";
-					echo "<td> ". $row ["Frecuency"]. "</td>";
-					echo "<td> ". $row ["Quantity"]. "</td>";
-					
-					echo "</tr>";
-					}
-					foreach($result as $row){
-
-					}
-
-					} else {
-					echo "Error";
-					}
-					?>
-
-		</table>
+				<div class="wrap-input100 validate-input m-b-25" >
+					<input class="input100" type="text" name="d" placeholder="Fecha" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="container-login100-form-btn">
+					<button type="submit"  name="sub_button" class="login100-form-btn">
+						Registrar
+					</button>
+				</div>
+			</form>
 		</div>
-					</div>
-				</form>
-			</div>
-		</div>
-		
-		<div id="dropDownSelect1"></div>
+	</div>
+	
+	<div id="dropDownSelect1"></div>
 
 </body>
 </html>

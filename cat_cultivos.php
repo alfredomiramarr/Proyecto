@@ -48,8 +48,8 @@
 
 	<div class="topnav">
 	  <a href="home.php">Inicio</a>
-	  <a href="new_cultivo.php">Nuevo Registro</a>
-	  <a class="active"href="#contact">Catálogos</a>
+	  <a href="new_zona.php">Nuevo Registro</a>
+	  <a class="active"href="#">Catálogos</a>
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 	</div>

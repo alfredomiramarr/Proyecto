@@ -1,11 +1,7 @@
 <?php
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
+require_once("cosechasVO.php");
 
-require_once("cultivosVO.php");
-
-class cultivosDAO {
+class cosechasDAO {
 	
 	private $host = "localhost";
 	private $user = "sepherot_javier";
@@ -23,11 +19,11 @@ class cultivosDAO {
 	}
 	
 	function selectAll() {
-		$sql = "SELECT * FROM T_Crop";
+		$sql = "SELECT * FROM T_Harvest";
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
-			$vo = new cultivosVO();
-			$vo->setAll($fila['Crop_ID'],$fila['Care_ID'],$fila['Crop_Name'],$fila['Crop_Location'],$fila['Crop_Type'],$fila['Crop_Quant']);
+			$vo = new cosechasVO();
+			$vo->setAll($fila['Harvest_ID'],$fila['Harvest_Date']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -37,7 +33,7 @@ class cultivosDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_Crop (Crop_Name, Crop_Location, Crop_Type, Crop_Quant) VALUES ('".$vo->getName()."','".$vo->getLocation()."','".$vo->getType()."',".$vo->getQuant().")";
+		$sql = "INSERT INTO T_Harvest ( Harvest_Date) VALUES ('".$vo->getDate()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;
@@ -47,19 +43,15 @@ class cultivosDAO {
 	
 	
 }
+
 /*
 echo "DAO -";
-echo "_____________";
+$objeto = new PokemonDAO();
+//print_r($objeto->selectAll());
 
-$objeto = new cultivosDAO();
-print_r($objeto->selectAll());
-echo "_______________";
-
-$vo = new cultivosVO();
-$vo->setAll(0, 0, "Platano","Colima","Description",5);
+$vo = new PokemonVO();
+$vo->setAll(0,"Pikachu","Electrico","35","who.jpg");
 $objeto->Insert($vo);
-print_r($objeto->selectAll());
 */
-
 
 ?>

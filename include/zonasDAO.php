@@ -1,12 +1,12 @@
 <?php
-require_once("PokemonVO.php");
+require_once("zonasVO.php");
 
-class PokemonDAO {
+class zonasDAO {
 	
 	private $host = "localhost";
-	private $user = "sepherot_test";
-	private $password = "test5";
-	private $database = "sepherot_BD";
+	private $user = "sepherot_javier";
+	private $password = "Pzk6IDs4by";
+	private $database = "sepherot_javierBD";
 	private $conn;
 	
 	function __construct() {
@@ -19,11 +19,11 @@ class PokemonDAO {
 	}
 	
 	function selectAll() {
-		$sql = "SELECT * FROM T_Pokemon";
+		$sql = "SELECT * FROM T_Zone";
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
-			$vo = new PokemonVO();
-			$vo->setAll($fila['ID_Pokemon'],$fila['Pok_Nombre'],$fila['Pok_Tipo'],$fila['Pok_Nivel'],$fila['Pok_Foto']);
+			$vo = new zonasVO();
+			$vo->setAll($fila['Zone_ID'],$fila['Zone']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,7 +33,7 @@ class PokemonDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_Pokemon (Pok_Nombre, Pok_Tipo, Pok_Nivel, Pok_Foto) VALUES ('".$vo->getNombre()."','".$vo->getTipo()."',".$vo->getNivel().",'".$vo->getImagen()."')";
+		$sql = "INSERT INTO T_Zone (Zone) VALUES ('".$vo->getZona()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;
@@ -44,14 +44,15 @@ class PokemonDAO {
 	
 }
 
-/*
-echo "DAO -";
-$objeto = new PokemonDAO();
+
+//echo "DAO -";
+//$objeto = new zonasDAO();
 //print_r($objeto->selectAll());
 
-$vo = new PokemonVO();
-$vo->setAll(0,"Pikachu","Electrico","35","who.jpg");
-$objeto->Insert($vo);
-*/
+//$vo = new zonasVO();
+//$vo->setAll("10010","CDMX");
+//$objeto->Insert($vo);
+//print_r($objeto->selectAll());
+
 
 ?>
