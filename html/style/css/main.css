@@ -183,10 +183,11 @@ iframe {
 }
 
 .wrap-login100 {
-  width: 390px;
+  width: 1000px;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
+  align-items: center;
 
   box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
