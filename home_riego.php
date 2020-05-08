@@ -129,9 +129,9 @@
 		}
 	</style>
 	<div class="menu">
-	  <a class="active" href="#home">CULTIVOS</a>
+	  <a href="home.php">CULTIVOS</a>
 	  <a href="home_zonas.php">ZONAS</a>
-	  <a href="home_riego.php">RIEGO</a>
+	  <a class="active" href="#">RIEGO</a>
 
 
 	</div>
@@ -158,7 +158,7 @@
 					<div class="login100-form-logo" align="center">
 						<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
 						<h1>INDICADORES</h1>
-						<?php require 'grafica.php'; ?>
+						<?php require 'grafica3.php'; ?>
 
 					</div>
 				</form>
