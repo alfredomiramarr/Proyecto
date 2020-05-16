@@ -37,7 +37,7 @@ class cultivosDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_Crop (Crop_Name, Crop_Location, Crop_Type, Crop_Quant) VALUES ('".$vo->getName()."','".$vo->getLocation()."','".$vo->getType()."',".$vo->getQuant().")";
+		$sql = "INSERT INTO C_Crop (Crop_Name, Crop_Location, Crop_Type, Crop_Quant) VALUES ('".$vo->getName()."','".$vo->getLocation()."','".$vo->getType()."',".$vo->getQuant().")";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

@@ -3,9 +3,12 @@
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 
-	require_once("include/cultivosDAO.php");
-    $dao=new cultivosDAO();
+	require_once("include/userDAO.php");
+	require_once("include/typeDAO.php");
+    $dao=new userDAO();
     $todos=$dao->selectAll();
+    $dao2=new typeDAO();
+    $todos2=$dao2->selectAll();
     $contador=0;;
 	?>
 <!DOCTYPE html>
@@ -17,7 +20,7 @@
 	<header align="center" background="FFFBB5">
 	<a href="home.php"> CHIQUITA BANANA  </a>
 	<img src="images/icon-banana.png" alt="Chiquita Banana" height="52" width="52">
-	<a href="logout.php" align="right">SALIR</a>
+	<a href="logout.php" align="right">REGRESAR</a>
 	
 	</header>
 <!--===============================================================================================-->	
@@ -46,10 +49,6 @@
 </head>
 <body>
 <div class="topnav">
-  <a href="home.php">Inicio</a>
-  <a class="active" href="#">Nuevo Registro</a>
-  <a href="cat_zonas.php">Catálogos</a>
-
   <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 </div>
 <style>
@@ -94,34 +93,33 @@
 		}
 	</style>
 	<div class="menu">
-	  <a href="new_zona.php">ZONAS</a>
-	  <a class="active" href="#">CULTIVO</a>
-	  <a href="new_riego.php">RIEGO</a>
-	  <a href="new_abono.php">ABONO</a>
-	  <a href="new_plaga.php">PLAGA</a>
-	  <a href="new_cosecha.php">COSECHA</a>
-	  <a href="new_tratamiento.php">TRATAMIENTOS</a>
-
 	</div>
 	
 	<div class="container-login100" style="background-image: url('images/banana-crop.jpg');">
 		<div class="wrap-login100 p-l-50 p-r-50 p-t-30 p-b-30">
-			<form class="login100-form validate-form" method="POST" action="alta_cultivo.php">
+			<form class="login100-form validate-form" method="POST" action="alta_user.php">
 				<div class="login100-form-logo" align="center">
 					<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
 				</div>
 				<span class="login100-form-title p-b-37">
-					Nuevo Cultivo
+					Nuevo Usuario
 				</span>
-
+				<div class="wrap-input100 validate-input m-b-25" >
+					<input class="input100" type="text" name="n" placeholder="Nombre" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input m-b-25" >
+					<input class="input100" type="text" name="ap" placeholder="Apellido" required="required">
+					<span class="focus-input100"></span>
+				</div>
 				<div class="wrap-input100 validate-input m-b-20" >
-					<select class="input100" name="n" required="required">
-				        <option value="0">Cultivo:</option>
+					<select class="input100" name="tu" required="required">
+				        <option value="0">Tipo de Usuario:</option>
 				        <?php
-				          if(!empty($todos)){
-				          foreach ($todos as $objeto) {
-				            echo '<option value="'.$objeto->getName().'">'.$objeto->getName().'</option>';
-				            $contador = $contador + 1;
+				          if(!empty($todos2)){
+				          foreach ($todos2 as $objeto2) {
+				            echo '<option value="'.$objeto2->getUserType().'">'.$objeto2->getUserType().'</option>';
+				            //$contador = $contador + 1;
 				        	}
 				          }
 				        ?>
@@ -129,22 +127,21 @@
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" >
-					<input class="input100" type="text" name="l" placeholder="Zona del cultivo" required="required">
-					<span class="focus-input100"></span>
-				</div>
+				
 				<div class="wrap-input100 validate-input m-b-20" >
-					<input class="input100" type="text" name="t" placeholder="Tipo de cultivo" required="required">
+					<input class="input100" type="email" name="em" placeholder="Email" required="required">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" >
-					<input class="input100" type="text" name="q" placeholder="Cantidad sembrada" required="required">
+					<input class="input100" type="password" name="pass" placeholder="Password" required="required">
 					<span class="focus-input100"></span>
 				</div>
-				
-				
-				
+				<div class="wrap-input100 validate-input m-b-25" >
+					<input class="input100" type="password" name="confpass" placeholder="Confirmar Password" required="required">
+					<span class="focus-input100"></span>
+				</div>
+						
 				<div class="container-login100-form-btn">
 					<button type="submit"  name="sub_button" value="Add" class="login100-form-btn">
 						Registrar
