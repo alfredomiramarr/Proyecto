@@ -10,6 +10,8 @@ class cosechasVO {
 	//ATRIBUTOS
 	
 	private $id;
+	private $haciendaId;
+	private $cropId;
 	private $date;
 	
 	//METODOS
@@ -18,12 +20,20 @@ class cosechasVO {
 	public function setId($valor) {
 		$this->id = $valor;
 	}
+	public function setHaciendaId($valor) {
+		$this->haciendaId = $valor;
+	}
+	public function setCropId($valor) {
+		$this->cropId = $valor;
+	}
 	public function setDate($valor) {
 		$this->date = $valor;
 	}
 	
-	public function setAll($id, $date) {
+	public function setAll($id, $haciendaId, $cropId, $date) {
 		$this->id = $id;
+		$this->haciendaId = $haciendaId;
+		$this->cropId = $cropId;
 		$this->date = $date;
 	}
 	
@@ -33,6 +43,14 @@ class cosechasVO {
 		return $this->id;
 	} 
 	
+	public function getHaciendaId() {
+		return $this->haciendaId;
+	}
+
+	public function getCropId() {
+		return $this->cropId;
+	}
+
 	public function getDate() {
 		return $this->date;
 	} 

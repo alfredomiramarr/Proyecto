@@ -19,7 +19,7 @@ class zonasDAO {
 	}
 	
 	function selectAll() {
-		$sql = "SELECT * FROM T_Zone";
+		$sql = "SELECT * FROM C_Zone";
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new zonasVO();
@@ -33,7 +33,7 @@ class zonasDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_Zone (Zone) VALUES ('".$vo->getZona()."')";
+		$sql = "INSERT INTO C_Zone (Zone) VALUES ('".$vo->getZona()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

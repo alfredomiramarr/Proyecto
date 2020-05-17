@@ -19,7 +19,7 @@ class riegoDAO {
 	}
 	
 	function selectAll() {
-		$sql = "SELECT * FROM T_Irrigation";
+		$sql = "SELECT * FROM _Irrigation";
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new riegoVO();
@@ -33,7 +33,7 @@ class riegoDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_Irrigation (Frecuency, Quantity) VALUES ('".$vo->getFrecuencia()."','".$vo->getQuant()."')";
+		$sql = "INSERT INTO C_Irrigation (Frecuency, Quantity) VALUES ('".$vo->getFrecuencia()."','".$vo->getQuant()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

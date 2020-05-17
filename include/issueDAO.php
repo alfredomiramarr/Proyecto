@@ -1,7 +1,7 @@
 <?php
-require_once("abonosVO.php");
+require_once("issueVO.php");
 
-class abonosDAO {
+class issueDAO {
 	
 	private $host = "localhost";
 	private $user = "sepherot_javier";
@@ -19,11 +19,11 @@ class abonosDAO {
 	}
 	
 	function selectAll() {
-		$sql = "SELECT * FROM C_Fertilizer";
+		$sql = "SELECT * FROM T_Issue";
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
-			$vo = new abonosVO();
-			$vo->setAll($fila['Fertilizer_ID'],$fila['Name'],$fila['Frecuency'],$fila['Quantity'],$fila['F_Desc']);
+			$vo = new issueVO();
+			$vo->setAll($fila['Issue_ID'],$fila['¨Plague_ID'],$fila['Care_ID'],$fila['Descripción'],$fila['Fecha_Alerta'],$fila['Traffic_Light']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,7 +33,7 @@ class abonosDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO C_Fertilizer (Name,Frecuency,Quantity, F_Desc) VALUES ('".$vo->getNombre()."','".$vo->getFrecuencia()."','".$vo->getCantidad()."','".$vo->getDescrip()."')";
+		$sql = "INSERT INTO T_Issue (Descripción, Fecha_Alerta, Traffic_Light) VALUES ('".$vo->getDescripcion()."','".$vo->getFechaAlerta()."','".$vo->getTrafficLight()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;
@@ -43,15 +43,3 @@ class abonosDAO {
 	
 	
 }
-
-/*
-echo "DAO -";
-$objeto = new PokemonDAO();
-//print_r($objeto->selectAll());
-
-$vo = new PokemonVO();
-$vo->setAll(0,"Pikachu","Electrico","35","who.jpg");
-$objeto->Insert($vo);
-*/
-
-?>

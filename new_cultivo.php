@@ -120,7 +120,7 @@
 				        <?php
 				          if(!empty($todos)){
 				          foreach ($todos as $objeto) {
-				            echo '<option value="'.$objeto->getName().'">'.$objeto->getName().'</option>';
+				            echo '<option value="'.$objeto->getID().'">'.$objeto->getName().'</option>';
 				            $contador = $contador + 1;
 				        	}
 				          }

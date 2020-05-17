@@ -19,7 +19,7 @@ class plagasDAO {
 	}
 	
 	function selectAll() {
-		$sql = "SELECT * FROM T_Plague";
+		$sql = "SELECT * FROM C_Plague";
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new plagasVO();
@@ -33,7 +33,7 @@ class plagasDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_Plague (Name, Description) VALUES ('".$vo->getNombre()."','".$vo->getDescripcion()."')";
+		$sql = "INSERT INTO C_Plague (Name, Description) VALUES ('".$vo->getNombre()."','".$vo->getDescripcion()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

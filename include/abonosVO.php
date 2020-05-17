@@ -11,6 +11,8 @@ class abonosVO {
 	
 	private $id;
 	private $nombre;
+	private $frecuencia;
+	private $cantidad;
 	private $descrip;
 	
 	//METODOS
@@ -22,14 +24,23 @@ class abonosVO {
 	public function setNombre($valor) {
 		$this->nombre = $valor;
 	}
+	public function setFrecuencia($valor) {
+		$this->frecuencia = $valor;
+	}
+	public function setCantidad($valor) {
+		$this->cantidad = $valor;
+	}
 	public function setDescrip($valor) {
 		$this->descrip = $valor;
 	}
 
+
 	
-	public function setAll($id, $name, $descrip) {
+	public function setAll($id, $name, $frecuency, $quantity, $descrip) {
 		$this->id = $id;
 		$this->nombre = $name;
+		$this->frecuencia = $frecuency;
+		$this->cantidad = $quantity;
 		$this->descrip = $descrip;
 	}
 	
@@ -43,6 +54,14 @@ class abonosVO {
 		return $this->nombre;
 	} 
 	
+	public function getFrecuencia() {
+		return $this->frecuencia;
+	} 
+
+	public function getCantidad() {
+		return $this->cantidad;
+	} 
+
 	public function getDescrip() {
 		return $this->descrip;
 	} 

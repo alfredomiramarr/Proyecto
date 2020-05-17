@@ -23,7 +23,7 @@ class cosechasDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new cosechasVO();
-			$vo->setAll($fila['Harvest_ID'],$fila['Harvest_Date']);
+			$vo->setAll($fila['Harvest_ID'],$fila['Hacienda_ID'],$fila['Crop_ID'],$fila['Harvest_Date']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))

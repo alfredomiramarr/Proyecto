@@ -1,7 +1,11 @@
 <?php
-require_once("abonosVO.php");
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
 
-class abonosDAO {
+require_once("haciendaVO.php");
+
+class haciendaDAO {
 	
 	private $host = "localhost";
 	private $user = "sepherot_javier";
@@ -19,11 +23,11 @@ class abonosDAO {
 	}
 	
 	function selectAll() {
-		$sql = "SELECT * FROM C_Fertilizer";
+		$sql = "SELECT * FROM C_Hacienda";
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
-			$vo = new abonosVO();
-			$vo->setAll($fila['Fertilizer_ID'],$fila['Name'],$fila['Frecuency'],$fila['Quantity'],$fila['F_Desc']);
+			$vo = new haciendaVO();
+			$vo->setAll($fila['Hacienda_ID'],$fila['Zone_ID'],$fila['Owner_ID'],$fila['Admin_ID'],$fila['Name'],$fila['Location'],$fila['Number'],$fila['Creation_Date']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,7 +37,7 @@ class abonosDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO C_Fertilizer (Name,Frecuency,Quantity, F_Desc) VALUES ('".$vo->getNombre()."','".$vo->getFrecuencia()."','".$vo->getCantidad()."','".$vo->getDescrip()."')";
+		$sql = "INSERT INTO C_Hacienda (Name, Location, Numbe, Creation_Date) VALUES ('".$vo->getName()."','".$vo->getLocation()."','".$vo->getNumber()."',".$vo->getCreation_Date().")";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;
@@ -44,14 +48,6 @@ class abonosDAO {
 	
 }
 
-/*
-echo "DAO -";
-$objeto = new PokemonDAO();
-//print_r($objeto->selectAll());
 
-$vo = new PokemonVO();
-$vo->setAll(0,"Pikachu","Electrico","35","who.jpg");
-$objeto->Insert($vo);
-*/
 
 ?>

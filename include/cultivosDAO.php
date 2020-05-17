@@ -23,7 +23,7 @@ class cultivosDAO {
 	}
 	
 	function selectAll() {
-		$sql = "SELECT * FROM T_Crop";
+		$sql = "SELECT * FROM C_Crop";
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new cultivosVO();
