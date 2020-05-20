@@ -95,7 +95,8 @@
 	</style>
 	<div class="menu">
 	  <a href="new_cultivo.php">CULTIVO</a>
-	  <a class="active" href="#">FERTILIZANTE</a>
+	  <a href="new_abono.php">FERTILIZANTE</a>
+	  <a class="active" href="#">DDT</a>
 	  <a href="new_plaga.php">PLAGA</a>
 	  <a href="new_riego.php">RIEGO</a>
 
@@ -108,15 +109,15 @@
 					<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
 				</div>
 				<span class="login100-form-title p-b-37">
-					Nuevo Fertilizante
+					Nuevo Insecticida
 				</span>
 
 				<div class="wrap-input10 validate-input m-b-25" >
-					<input class="input100" type="text" name="n" placeholder="Nombre del fertilizante" required="required">
+					<input class="input100" type="text" name="n" placeholder="Nombre del insecticida" required="required">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input10 validate-input m-b-20" >
-					<input class="input100" type="text" name="des" placeholder="Descripción" required="required">
+					<input class="input100" type="text" name="d" placeholder="Descripción" required="required">
 					<span class="focus-input100"></span>
 				</div>		
 				<div class="wrap-input10 validate-input m-b-25" >

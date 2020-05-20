@@ -23,7 +23,7 @@ class cosechasDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new cosechasVO();
-			$vo->setAll($fila['Harvest_ID'],$fila['Hacienda_ID'],$fila['Crop_ID'],$fila['Harvest_Date']);
+			$vo->setAll($fila['Harvest_ID'],$fila['Hacienda_ID'],$fila['Crop_ID'], $fila['Harv_Quant'], $fila['Harvest_Date']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,7 +33,7 @@ class cosechasDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_Harvest ( Harvest_Date) VALUES ('".$vo->getDate()."')";
+		$sql = "INSERT INTO T_Harvest (Harvest_ID, Hacienda_ID, Crop_ID, Harv_Quant, Harvest_Date) VALUES ('".$vo->getId()."','".$vo->getHaciendaId()."','".$vo->getCropId()."', ".$vo->getQuant().",'".$vo->getDate()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

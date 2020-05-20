@@ -10,11 +10,10 @@ class cultivosVO {
 	//ATRIBUTOS
 	
 	private $id;
-	private $careId;
 	private $name;
-	private $location;
 	private $type;
 	private $quant;
+	private $img;
 	
 	//METODOS
 	
@@ -22,29 +21,27 @@ class cultivosVO {
 	public function setId($valor) {
 		$this->id = $valor;
 	}
-	public function setCareId($valor) {
-		$this->careId = $valor;
-	}
+	
 	public function setName($valor) {
 		$this->name = $valor;
 	}
-	public function setLocation($valor) {
-		$this->location = $valor;
-	}
+	
 	public function setType($valor) {
 		$this->type = $valor;
 	}
 	public function setQuant($valor) {
 		$this->quant = $valor;
 	}
+	public function setImg($valor) {
+		$this->img = $valor;
+	}
 	
-	public function setAll($id, $careId, $name, $location, $type, $quant) {
+	public function setAll($id, $name, $type, $quant, $img) {
 		$this->id = $id;
-		$this->careId = $careId;
 		$this->name = $name;
-		$this->location = $location;
 		$this->type = $type;
 		$this->quant = $quant;
+		$this->img = $img;
 	}
 	
 	//GET - Recuperar
@@ -53,16 +50,8 @@ class cultivosVO {
 		return $this->id;
 	} 
 	
-	public function getCareId() {
-		return $this->careId;
-	} 
-	
 	public function getName() {
 		return $this->name;
-	} 
-	
-	public function getLocation() {
-		return $this->location;
 	} 
 	
 	public function getType() {
@@ -71,6 +60,9 @@ class cultivosVO {
 	
 	public function getQuant() {
 		return $this->quant;
+	} 
+	public function getImg() {
+		return $this->img;
 	} 
 	
 }

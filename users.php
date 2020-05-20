@@ -16,13 +16,20 @@ include "conexion.php";
 $sql = "SELECT Email, Password, Salt FROM T_User WHERE Email = '".$correo."'";
 $result= mysqli_query($conexion,$sql);
 $user = mysqli_fetch_assoc($result);
-$hashedPassword = hash("sha256",$pass.$user["Salt"]);
+$hashedPassword = hash("sha256", $pass.$user["Salt"]);
 
-echo $correo."------->";
-echo $user["Email"],"----->>>>>>";
-echo $hashedPassword."------->";
-echo $user["Password"],"----->>>>>>";
-echo $user["Salt"],"----->>>>>>";
+/*echo "Correo usuario=...".$correo;
+echo "<br>";
+echo "Correo base de datos=...".$user["Email"]."--------";
+echo "<br>";
+echo "Correo usuario=...".$pass."--------";
+echo "<br>";
+echo "Contraseña hasheada usuario=...".$hashedPassword."-------";
+echo "<br>";
+echo "Contraseña base de datos=...".$user["Password"]."--------";
+echo "<br>";
+//echo "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e730";
+echo $user["Salt"]."----->>>>>>";*/
 
 if ($user["Password"]==$hashedPassword)
 	{	echo "Correcto";
@@ -59,11 +66,11 @@ if ($user["Password"]==$hashedPassword)
 	}
 	else 
 	{
-		echo "DATOS INCORRECTOS";
-		/*echo '<script>
+		//echo "DATOS INCORRECTOS";
+		echo '<script>
 		alert ("Datos incorrectos, favor de verificar.");
 		window.history.go(-1);
-		</script>';*/
+		</script>';
 	}
 mysqli_close($conexion);
 ?>

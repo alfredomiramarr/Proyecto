@@ -6,8 +6,11 @@
 	
 
 	//RECIBIR DATOS DEL FORMULARIO
-	//$id=htmlspecialchars($_POST["i"]);
-	$date=htmlspecialchars($_POST["d"]);
+	$hacienda=htmlspecialchars($_POST["h"]);
+	$cultivo=htmlspecialchars($_POST["c"]);
+	$quant=htmlspecialchars($_POST["q"]);
+	//$date=htmlspecialchars($_POST["d"]);
+
 
 	//echo $id, $nombre, $descripcion;
 
@@ -16,7 +19,7 @@
 	$objetoVO = new cosechasVO();
 	$objetoDAO = new cosechasDAO();
 
-	$objetoVO->setAll(0, $date);
+	$objetoVO->setAll(0, $hacienda, $cultivo, $quant, 0);
 	$bandera=$objetoDAO->Insert($objetoVO);
 
 	if($bandera) {

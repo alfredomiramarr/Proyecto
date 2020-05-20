@@ -176,6 +176,9 @@
 					<thead>
 					<tr>
 					<th>ID</th>
+					<th>HACIENDA</th>
+					<th>CULTIVO COSECHADO</th>
+					<th>PIEZAS COSECHADAS</th>
 					<th>DIA DE COSECHA</th>		
 					</tr>
 					</thead>
@@ -234,10 +237,13 @@
 
 					echo "<tr>";
 					echo "<td> ". $row ["Harvest_ID"]. "</td>";
+					echo "<td> ". $row ["Hacienda_ID"]. "</td>";
+					echo "<td> ". $row ["Crop_ID"]. "</td>";
+					echo "<td> ". $row ["Harv_Quant"]. "</td>";
 					echo "<td> ". $row ["Harvest_Date"]. "</td>";
 
-					echo "<td> <a href 'editar.php?no=".$row["Harvest_ID"]."'> <button type='submit'  name='editar' class='btn'>Editar</button></a><p>...</p>
-					<a href 'modificar.php?no=".$row["Harvest_ID"]."'> <button type='submit' name='eliminar' class='btn'>Eliminar</button></a></div></td>";
+					/*echo "<td> <a href 'editar.php?no=".$row["Harvest_ID"]."'> <button type='submit'  name='editar' class='btn'>Editar</button></a><p>...</p>
+					<a href 'modificar.php?no=".$row["Harvest_ID"]."'> <button type='submit' name='eliminar' class='btn'>Eliminar</button></a></div></td>";*/
 
 					
 					

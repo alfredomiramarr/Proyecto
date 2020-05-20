@@ -20,7 +20,7 @@
 	
 	</header>
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icon-banana.png"/>
+	<link rel="icon" type="image/png" href="images/icon1.jpg"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="style/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -52,8 +52,9 @@
 
 	<div class="topnav">
 	  <a href="home.php">Inicio</a>
-	  <a href="new_zona.php">Nuevo Registro</a>
 	  <a class="active"href="#">Catálogos</a>
+	  <a href="new_cultivo.php">Nuevo Registro</a>
+	  
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 	</div>
@@ -99,13 +100,11 @@
 		}
 	</style>
 	<div class="menu">
-	  <a href="cat_zonas.php">ZONAS</a>
 	  <a href="cat_cultivos.php">CULTIVOS</a>
-	  <a href="cat_riego.php">RIEGO</a>
-	  <a class="active" href="cat_abonos.php">ABONO</a>
+	  <a class="active" href="cat_abonos.php">FERTILIZANTES</a>
 	  <a href="cat_plagas.php">PLAGAS</a>
-	  <a href="cat_cosechas.php">COSECHA</a>
-	  <a href="cat_tratamientos.php">TRATAMIENTOS</a>
+	  <a href="cat_riego.php">RIEGO</a>
+	  
 	</div>
 		
 		<div class="container-login100" style="background-image: url('images/banana-back.jpg');">
@@ -128,7 +127,7 @@
 				<form class="login100-form validate-form">
 					<div class="login100-form-logo" align="center">
 						<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
-						<h1>ABONO</h1>
+						<h1>FERTILIZANTES</h1>
 </head>
 			<style>
 					table.paleBlueRows {
@@ -173,6 +172,7 @@
 				<table class="paleBlueRows" align="center">
 					<thead>
 					<tr>
+					<th>IMAGEN</th>
 					<th>ID</th>
 					<th>NOMBRE DEL ABONO</th>
 					<th>DESCRIPCIÓN</th>
@@ -224,7 +224,7 @@
 					<tbody>
 					<?php
 					//include("include/conexion.php");
-					$sql = "SELECT * FROM T_Fertilizer;";
+					$sql = "SELECT * FROM C_Fertilizer;";
 					$result = mysqli_query($conexion,$sql);
 
 					if($result) {
@@ -233,6 +233,7 @@
 
 					echo "<tr>";
 					
+					echo '<td><img src="'.$row["Fertilizer_Img"].'" alt="'.$row["Fertilizer_Img"].'"style="width:60%;"></td>';
 					echo "<td> ". $row ["Fertilizer_ID"]. "</td>";
 					echo "<td> ". $row ["Name"]. "</td>";
 					echo "<td> ". $row ["F_Desc"]. "</td>";
@@ -255,8 +256,8 @@
 					</table>
 				</div>
 				<div class="text-center p-t-40 p-b-20">
-					<a href="new_cosecha.php" class="txt1">
-						Nuevo Abono
+					<a href="new_abono.php" class="txt1">
+						Nuevo Fertilizante
 					</a>
 				</div>
 		</div>

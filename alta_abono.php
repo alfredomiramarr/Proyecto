@@ -9,6 +9,13 @@
 	//$id=htmlspecialchars($_POST["i"]);
 	$nombre=htmlspecialchars($_POST["n"]);
 	$descrip=htmlspecialchars($_POST["des"]);
+	$imgname=$_FILES['img']['name'];
+	$imgarchivo=$_FILES['img']['tmp_name'];
+	$imgruta="images";
+	$imgruta=$imgruta."/".$imgname;
+
+	move_uploaded_file($imgarchivo, $imgruta);
+
 
 	//echo $id, $nombre, $descripcion;
 
@@ -17,7 +24,7 @@
 	$objetoVO = new abonosVO();
 	$objetoDAO = new abonosDAO();
 
-	$objetoVO->setAll(0, $nombre, $descrip);
+	$objetoVO->setAll(0, $nombre, $descrip, $imgruta);
 	$bandera=$objetoDAO->Insert($objetoVO);
 
 	if($bandera) {

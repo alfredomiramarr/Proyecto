@@ -1,7 +1,7 @@
 <?php
-require_once("zonasVO.php");
+require_once("sprayVO.php");
 
-class zonasDAO {
+class sprayDAO {
 	
 	private $host = "localhost";
 	private $user = "sepherot_javier";
@@ -19,11 +19,11 @@ class zonasDAO {
 	}
 	
 	function selectAll() {
-		$sql = "SELECT * FROM C_Zone";
+		$sql = "SELECT * FROM C_Spray";
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
-			$vo = new zonasVO();
-			$vo->setAll($fila['Zone_ID'],$fila['Zone']);
+			$vo = new sprayVO();
+			$vo->setAll($fila['Spray_Id'],$fila['Spray_Name'],$fila['Spray_Desc'],$fila['Spray_Image']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,7 +33,7 @@ class zonasDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO C_Zone (Zone) VALUES ('".$vo->getZona()."')";
+		$sql = "INSERT INTO C_Spray (Spray_Name, Spray_Desc, Spray_Img) VALUES ('".$vo->getNombre()."','".$vo->getDescrip()."','".$vo->getImg()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;
@@ -44,15 +44,14 @@ class zonasDAO {
 	
 }
 
-
-//echo "DAO -";
-//$objeto = new zonasDAO();
+/*
+echo "DAO -";
+$objeto = new PokemonDAO();
 //print_r($objeto->selectAll());
 
-//$vo = new zonasVO();
-//$vo->setAll("10010","CDMX");
-//$objeto->Insert($vo);
-//print_r($objeto->selectAll());
-
+$vo = new PokemonVO();
+$vo->setAll(0,"Pikachu","Electrico","35","who.jpg");
+$objeto->Insert($vo);
+*/
 
 ?>

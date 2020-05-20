@@ -48,8 +48,9 @@
 
 	<div class="topnav">
 	  <a href="home.php">Inicio</a>
-	  <a href="new_zona.php">Nuevo Registro</a>
 	  <a class="active"href="#">Catálogos</a>
+	  <a href="new_cultivo.php">Nuevo Registro</a>
+	  
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 	</div>
@@ -96,13 +97,11 @@
 		}
 	</style>
 	<div class="menu" align="center">
-	  <a href="cat_zonas.php">ZONAS</a>
+	  
 	  <a class="active " href="cat_cultivos.php">CULTIVOS</a>
-	  <a href="cat_riego.php">RIEGO</a>
-	  <a href="cat_abonos.php">ABONO</a>
+	  <a href="cat_abonos.php">FERTILIZANTES</a>
 	  <a href="cat_plagas.php">PLAGAS</a>
-	  <a href="cat_cosechas.php">COSECHA</a>
-	  <a href="cat_tratamientos.php">TRATAMIENTOS</a>
+	  <a href="cat_riego.php">RIEGO</a>
 
 	</div>
 		<div class="container-login100" style="background-image: url('images/banana-back.jpg');">
@@ -170,8 +169,8 @@
 				<table class="paleBlueRows" align="center">
 					<thead>
 					<tr>
+					<th>IMAGEN</th>
 					<th>NOMBRE DE CULTIVO</th>
-					<th>LOCACION</th>
 					<th>TIPO DE CULTIVO</th>
 					<th>CANTIDAD</th>		
 					</tr>
@@ -222,7 +221,7 @@
 					<tbody>
 					<?php
 					//include("include/conexion.php");
-					$sql = "SELECT * FROM T_Crop;";
+					$sql = "SELECT * FROM C_Crop;";
 					$result = mysqli_query($conexion,$sql);
 
 					if($result) {
@@ -231,8 +230,8 @@
 
 					echo "<tr>";
 					
+					echo '<td><img src="'.$row["Crop_Img"].'" alt="'.$row["Crop_Img"].'"style="width:60%;"></td>';
 					echo "<td> ". $row ["Crop_Name"]. "</td>";
-					echo "<td> ". $row ["Crop_Location"]. "</td>";
 					echo "<td> ". $row ["Crop_Type"]. "</td>";
 					echo "<td> ". $row ["Crop_Quant"]. "</td>";
 					

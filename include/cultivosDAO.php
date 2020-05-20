@@ -27,7 +27,7 @@ class cultivosDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new cultivosVO();
-			$vo->setAll($fila['Crop_ID'],$fila['Care_ID'],$fila['Crop_Name'],$fila['Crop_Location'],$fila['Crop_Type'],$fila['Crop_Quant']);
+			$vo->setAll($fila['Crop_ID'],$fila['Crop_Name'],$fila['Crop_Type'],$fila['Crop_Quant'],$fila['Crop_Img']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -37,7 +37,7 @@ class cultivosDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO C_Crop (Crop_Name, Crop_Location, Crop_Type, Crop_Quant) VALUES ('".$vo->getName()."','".$vo->getLocation()."','".$vo->getType()."',".$vo->getQuant().")";
+		$sql = "INSERT INTO C_Crop (Crop_Name, Crop_Type, Crop_Quant, Crop_Img) VALUES ('".$vo->getName()."','".$vo->getType()."',".$vo->getQuant().",'".$vo->getImg()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

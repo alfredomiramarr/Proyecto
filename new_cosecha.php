@@ -4,7 +4,17 @@
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 	
-	require "conexion.php";
+	//require "conexion.php";
+	require_once("include/cosechasDAO.php");
+	require_once("include/haciendaDAO.php");
+	require_once("include/cultivosDAO.php");
+	$daocos=new cosechasDAO();
+    $todoscos=$daocos->selectAll();
+    $daoh=new haciendaDAO();
+    $todosh=$daoh->selectAll();
+    $daocul=new cultivosDAO();
+    $todoscul=$daocul->selectAll();
+    $contador=0;
 
 	//mysqli_close($conexion);
 ?>
@@ -94,13 +104,10 @@
 		}
 	</style>
 	<div class="menu">
-	  <a href="new_zona.php">ZONAS</a>
-	  <a href="new_cultivo.php">CULTIVO</a>
-	  <a href="new_riego.php">RIEGO</a>
-	  <a href="new_abono.php">ABONO</a>
-	  <a href="new_plaga.php">PLAGA</a>
-	  <a class="active" href="#">COSECHA</a>
-	  <a href="new_tratamiento.php">TRATAMIENTOS</a>
+		<a class="active" href="#">COSECHA</a>
+	  	<a href="new_siembra.php">SIEMBRA</a>
+	  	<a href="new_tratamiento.php">TRATAMIENTOS</a>
+	  	<a href="new_issue.php">RIESGO</a>
 
 	</div>
 	
@@ -113,9 +120,36 @@
 				<span class="login100-form-title p-b-37">
 					Nueva Cosecha
 				</span>
-
-				<div class="wrap-input100 validate-input m-b-25" >
-					<input class="input100" type="text" name="d" placeholder="Fecha" required="required">
+				<div class="wrap-input10 validate-input m-b-20" >
+					<select class="input100" name="h" required="required">
+				        <option value="0">Hacienda:</option>
+				        <?php
+				          if(!empty($todosh)){
+				          foreach ($todosh as $objeto1) {
+				            echo '<option value="'.$objeto1->getHaciendaId().'">'.$objeto1->getName().'</option>';
+				            //$contador = $contador + 1;
+				        	}
+				          }
+				        ?>
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input10 validate-input m-b-20" >
+					<select class="input100" name="c" required="required">
+				        <option value="0">Cultivo Cosechado:</option>
+				        <?php
+				          if(!empty($todoscul)){
+				          foreach ($todoscul as $objeto2) {
+				            echo '<option value="'.$objeto2->getId().'">'.$objeto2->getName().'</option>';
+				            //$contador = $contador + 1;
+				        	}
+				          }
+				        ?>
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input10 validate-input m-b-25" >
+					<input class="input100" type="text" name="q" placeholder="Cantidad Cosechada(piezas)" required="required">
 					<span class="focus-input100"></span>
 				</div>
 				

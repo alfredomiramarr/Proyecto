@@ -46,7 +46,7 @@
 <div class="topnav">
   <a href="home.php">Inicio</a>
   <a class="active" href="#">Nuevo Registro</a>
-  <a href="cat_zonas.php">Catálogos</a>
+  <a href="cat_cultivos.php">Catálogos</a>
 
   <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 </div>
@@ -92,13 +92,10 @@
 		}
 	</style>
 	<div class="menu">
-	  <a href="new_zona.php">ZONAS</a>
 	  <a href="new_cultivo.php">CULTIVO</a>
-	  <a class="active" href="#">RIEGO</a>
 	  <a href="new_abono.php">ABONO</a>
 	  <a href="new_plaga.php">PLAGA</a>
-	  <a href="new_cosecha.php">COSECHA</a>
-	  <a href="new_tratamiento.php">TRATAMIENTOS</a>
+	  <a class="active" href="#">RIEGO</a>
 
 	</div>
 	
@@ -112,14 +109,22 @@
 					Nuevo Sistema de Riego
 				</span>
 
-				<div class="wrap-input100 validate-input m-b-25" >
+				<div class="wrap-input10 validate-input m-b-25" >
 					<input class="input100" type="text" name="f" placeholder="Frecuencia" required="required">
 					<span class="focus-input100"></span>
 				</div>
-				<div class="wrap-input100 validate-input m-b-20" >
+				<div class="wrap-input10 validate-input m-b-20" >
 					<input class="input100" type="text" name="q" placeholder="Cantidad" required="required">
 					<span class="focus-input100"></span>
-				</div>		
+				</div>	
+				<div class="wrap-input10 validate-input m-b-20" >
+					<input class="input100" type="text" name="d" placeholder="Descripción" required="required">
+					<span class="focus-input100"></span>
+				</div>	
+				<div class="wrap-input10 validate-input m-b-25" >
+					<input class="input100" type="file" name="img" placeholder="Imagen">
+					<span class="focus-input100"></span>
+				</div>	
 				
 				<div class="container-login100-form-btn">
 					<button type="submit"  name="sub_button" value="Add" class="login100-form-btn">

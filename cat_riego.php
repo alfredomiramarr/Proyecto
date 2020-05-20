@@ -53,8 +53,9 @@
 
 	<div class="topnav">
 	  <a href="home.php">Inicio</a>
-	  <a href="new_zona.php">Nuevo Registro</a>
 	  <a class="active"href="#">Catálogos</a>
+	  <a href="new_cultivo.php">Nuevo Registro</a>
+	  
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 	</div>
@@ -100,19 +101,17 @@
 		}
 	</style>
 	<div class="menu">
-	  <a href="cat_zonas.php">ZONAS</a>
 	  <a href="cat_cultivos.php">CULTIVOS</a>
-	  <a class="active" href="cat_riego.php">RIEGO</a>
-	  <a href="cat_abonos.php">ABONO</a>
+	  <a href="cat_abonos.php">FERTILIZANTES</a>
 	  <a href="cat_plagas.php">PLAGAS</a>
-	  <a href="cat_cosechas.php">COSECHA</a>
-	  <a href="cat_tratamientos.php">TRATAMIENTOS</a>
+	  <a class="active" href="cat_riego.php">RIEGO</a>
+
 	</div>
 		
 		<div class="container-login100" style="background-image: url('images/banana-back.jpg');">
 			<style>
 				.tabla10 {
-				  width: 700px;
+				  width: 800px;
 				  background: #fff;
 				  border-radius: 10px;
 				  overflow: hidden;
@@ -129,7 +128,7 @@
 				<form class="login100-form validate-form">
 					<div class="login100-form-logo" align="center">
 						<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
-						<h1>RIEGO</h1>
+						<h1>SISTEMAS DE RIEGO</h1>
 </head>
 			<style>
 					table.paleBlueRows {
@@ -174,8 +173,10 @@
 				<table class="paleBlueRows" align="center">
 					<thead>
 					<tr>
+					<th>ICONO</th>
 					<th>FRECUENCIA</th>
 					<th>CANTIDAD</th>
+					<th>DESCRIPCIÓN</th>
 					</tr>
 					</thead>
 
@@ -226,7 +227,7 @@
 
 					<?php
 					//include("include/conexion.php");
-					$sql = "SELECT * FROM T_Irrigation;";
+					$sql = "SELECT * FROM C_Irrigation;";
 					$result = mysqli_query($conexion,$sql);
 
 					if($result) {
@@ -234,8 +235,11 @@
 					while ($row =mysqli_fetch_assoc($result)){
 
 					echo "<tr>";
+
+					echo '<td><img src="'.$row["Image"].'" alt="'.$row["Image"].'"style="width:60%;"></td>';
 					echo "<td> ". $row ["Frecuency"]. "</td>";
-					echo "<td> ". $row ["Quantity"]. "</td>";
+					echo "<td> ". $row ["Quantity"]. " (Litros) </td>";
+					echo "<td> ". $row ["Description"]. "</td>";
 
 					echo "<td> <a href 'editar.php?no=".$row["Irrigation_ID"]."'> <button type='submit'  name='editar' class='btn'>Editar</button></a><p>...</p>
 					<a href 'modificar.php?no=".$row["Irrigation_ID"]."'> <button type='submit' name='eliminar' class='btn'>Eliminar</button></a></div></td>";

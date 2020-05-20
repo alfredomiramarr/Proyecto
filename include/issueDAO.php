@@ -23,7 +23,7 @@ class issueDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new issueVO();
-			$vo->setAll($fila['Issue_ID'],$fila['¨Plague_ID'],$fila['Care_ID'],$fila['Descripción'],$fila['Fecha_Alerta'],$fila['Traffic_Light']);
+			$vo->setAll($fila['Issue_ID'], $file['Crop_Id'], $fila['Plague_ID'],$fila['Care_ID'],$fila['Descripción'],$fila['Fecha_Alerta'],$fila['Traffic_Light']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,7 +33,7 @@ class issueDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_Issue (Descripción, Fecha_Alerta, Traffic_Light) VALUES ('".$vo->getDescripcion()."','".$vo->getFechaAlerta()."','".$vo->getTrafficLight()."')";
+		$sql = "INSERT INTO T_Issue (Crop_Id, Plague_ID, Care_ID, Descripción, Fecha_Alerta, Traffic_Light) VALUES ('".$vo->getPlagueId()."','".$vo->getCareId()."','".$vo->getDescripcion()."','".$vo->getFechaAlerta()."','".$vo->getTrafficLight()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

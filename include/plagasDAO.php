@@ -23,7 +23,7 @@ class plagasDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new plagasVO();
-			$vo->setAll($fila['Plague_ID'],$fila['Name'],$fila['Description']);
+			$vo->setAll($fila['Plague_ID'],$fila['Name'],$fila['Description'],$fila['Image']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,7 +33,7 @@ class plagasDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO C_Plague (Name, Description) VALUES ('".$vo->getNombre()."','".$vo->getDescripcion()."')";
+		$sql = "INSERT INTO C_Plague (Name, Description, Image) VALUES ('".$vo->getNombre()."','".$vo->getDescripcion()."','".$vo->getNombre()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

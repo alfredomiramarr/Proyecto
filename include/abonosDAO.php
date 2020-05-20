@@ -23,7 +23,7 @@ class abonosDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new abonosVO();
-			$vo->setAll($fila['Fertilizer_ID'],$fila['Name'],$fila['Frecuency'],$fila['Quantity'],$fila['F_Desc']);
+			$vo->setAll($fila['Fertilizer_ID'],$fila['Name'],$fila['F_Desc'],$fila['Fertilizer_Img']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,7 +33,7 @@ class abonosDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO C_Fertilizer (Name,Frecuency,Quantity, F_Desc) VALUES ('".$vo->getNombre()."','".$vo->getFrecuencia()."','".$vo->getCantidad()."','".$vo->getDescrip()."')";
+		$sql = "INSERT INTO C_Fertilizer (Name, F_Desc, Fertilizer_Img) VALUES ('".$vo->getNombre()."','".$vo->getDescrip()."','".$vo->getImg()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

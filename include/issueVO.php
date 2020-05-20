@@ -5,11 +5,12 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-class IssueVO {
+class issueVO {
 	
 	//ATRIBUTOS
 	
 	private $issueId;
+	private $cropId;
 	private $plagueId;
 	private $careId;
 	private $descripcion;
@@ -21,6 +22,9 @@ class IssueVO {
 	//SET
 	public function setIssueId($valor) {
 		$this->issueId = $valor;
+	}
+	public function setCropId($valor) {
+		$this->cropId = $valor;
 	}
 	public function setPlagueId($valor) {
 		$this->plagueId = $valor;
@@ -39,8 +43,9 @@ class IssueVO {
 	}
 	
 	
-	public function setAll($issueId, $plagueId, $careId, $descripcion, $fechaAlerta, $trafficLight) {
+	public function setAll($issueId, $cropId, $plagueId, $careId, $descripcion, $fechaAlerta, $trafficLight) {
 		$this->issueId = $issueId;
+		$this->cropId = $cropId;
 		$this->plagueId = $plagueId;
 		$this->careId = $careId;
 		$this->descripcion = $descripcion;
@@ -53,6 +58,9 @@ class IssueVO {
 	public function getIssueId() {
 		return $this->issueId;
 	} 
+	public function getCropId() {
+		return $this->cropId;
+	}
 	
 	public function getPlagueId() {
 		return $this->plagueId;

@@ -3,6 +3,19 @@
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
+
+	require_once("include/plagasDAO.php");
+	require_once("include/sprayDAO.php");
+	require_once("include/semaforoDAO.php");
+	require_once("include/cultivosDAO.php");
+    $daop=new plagasDAO();
+    $todosp=$daop->selectAll();
+    $daosp=new sprayDAO();
+    $tsp=$daosp->selectAll();
+    $daosem=new semaforoDAO();
+    $sem=$daosem->selectAll();
+    $daoc=new cultivosDAO();
+    $todosc=$daoc->selectAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,32 +103,82 @@
 		}
 	</style>
 	<div class="menu">
-	  <a class="active" href="#">ZONAS</a>
-	  <a href="new_cultivo.php">CULTIVO</a>
-	  <a href="new_riego.php">RIEGO</a>
-	  <a href="new_abono.php">ABONO</a>
-	  <a href="new_plaga.php">PLAGA</a>
-	  <a href="new_cosecha.php">COSECHA</a>
-	  <a href="new_tratamiento.php">TRATAMIENTOS</a>
+	  <a  href="#">COSECHA</a>
+	  	<a href="new_siembra.php">SIEMBRA</a>
+	  	<a href="new_tratamiento.php">TRATAMIENTOS</a>
+	  	<a class="active" href="#">RIESGO</a>
 
 	</div>
 	
 	<div class="container-login100" style="background-image: url('images/banana-crop.jpg');">
 		<div class="wrap-login100 p-l-50 p-r-50 p-t-30 p-b-30">
-			<form class="login100-form validate-form" method="post" action="alta_zona.php">
+			<form class="login100-form validate-form" method="post" action="alta_issue.php">
 				<div class="login100-form-logo" align="center">
 					<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
 				</div>
 				<span class="login100-form-title p-b-37">
-					Nueva Zona
+					Riesgo Detectado
 				</span>
-
-				<div class="wrap-input100 validate-input m-b-25" >
-					<input class="input100" type="text" name="z" placeholder="Nombre de la zona" required="required">
+				<div class="wrap-input10 validate-input m-b-20" >
+					<select class="input100" name="c" required="required">
+				        <option value="0">Cultivo afectado:</option>
+				        <?php
+				          if(!empty($todosc)){
+				          foreach ($todosc as $obj) {
+				            echo '<option value="'.$obj->getId().'">'.$obj->getName().'</option>';
+				            //$contador = $contador + 1;
+				        	}
+				          }
+				        ?>
+					</select>
 					<span class="focus-input100"></span>
-				</div>		
-				
-				
+				</div>	
+				<div class="wrap-input10 validate-input m-b-20" >
+					<select class="input100" name="p" required="required">
+				        <option value="0">Plaga detectada:</option>
+				        <?php
+				          if(!empty($todosp)){
+				          foreach ($todosp as $objeto) {
+				            echo '<option value="'.$objeto->getId().'">'.$objeto->getNombre().'</option>';
+				            //$contador = $contador + 1;
+				        	}
+				          }
+				        ?>
+					</select>
+					<span class="focus-input100"></span>
+				</div>	
+				<div class="wrap-input10 validate-input m-b-20" >
+					<select class="input100" name="s" required="required">
+				        <option value="0">Fertilizante requerido:</option>
+				        <?php
+				          if(!empty($tsp)){
+				          foreach ($tsp as $o2) {
+				            echo '<option value="'.$o2->getId().'">'.$o2->getNombre().'</option>';
+				            //$contador = $contador + 1;
+				        	}
+				          }
+				        ?>
+					</select>
+					<span class="focus-input100"></span>
+				</div>	
+				<div class="wrap-input10 validate-input m-b-25" >
+					<input class="input100" type="text" name="d" placeholder="Descripción del riesgo" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input10 validate-input m-b-20" >
+					<select class="input100" name="tl" required="required">
+				        <option value="0">Prioridad:</option>
+				        <?php
+				          if(!empty($sem)){
+				          foreach ($sem as $o3) {
+				            echo '<option value="'.$o3->getTraficId().'">'.$o3->getCategory().'</option>';
+				            //$contador = $contador + 1;
+				        	}
+				          }
+				        ?>
+					</select>
+					<span class="focus-input100"></span>
+				</div>
 				<div class="container-login100-form-btn">
 					<button type="submit"  name="sub_button" value="Add" class="login100-form-btn">
 						Registrar

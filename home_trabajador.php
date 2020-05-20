@@ -111,21 +111,24 @@
 	</style>
 	<div class="menu">
 	  <a class="active" href="#home">PLANTACIONES</a>
-	  <a href="home_zonas.php">COSECHAS</a>
-	  <a href="home_riego.php">RIESGOS</a>
-	  <a href="home_riego.php">TRATAMIENTOS</a>
+	  <a href="new_cosecha.php">COSECHAS</a>
+	  <a href="new_riego.php">RIESGOS</a>
+	  <a href="new_tratamiento.php">TRATAMIENTOS</a>
 
 	</div>
 		
 		<div class="container-login100" style="background-image: url('images/banana-back.jpg');">
-			<style>
+		<style>
 				.tabla10 {
-				  width: 80%;
-				  height: : 100%;
-				  background: #E0FFFF;
+				  width: 500px;
+				  background: #fff;
 				  border-radius: 10px;
 				  overflow: hidden;
 				  align-items: center;
+				  position: absolute;
+				  top: 20px;
+				  left:140px;
+				  z-index:10;
 
 				  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
 				  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
@@ -133,18 +136,99 @@
 				  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
 				  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
 				}
-			</style>
-			<div class="tabla10 p-l-50 p-r-50 p-t-30 p-b-30">
-				<form class="login100-form validate-form">
-					<div class="login100-form-logo" align="center">
-						<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
-						<h1>INDICADORES</h1>
-						<?php require 'grafica.php'; ?>
+				.tabla20{
+					width: 500px;
+				  background: #fff;
+				  border-radius: 10px;
+				  overflow: hidden;
+				  align-items: center;
+				  position: absolute;
+				  top: 20px;
+				  left:660px;
+				  z-index:10;
 
-					</div>
-				</form>
-			</div>
+				  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+				  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+				  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+				  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+				  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+					}
+					.tabla30{
+					width: 500px;
+				  background: #fff;
+				  border-radius: 10px;
+				  overflow: hidden;
+				  align-items: center;
+				  position: absolute;
+				  top: 400px;
+				  left:140px;
+				  z-index:10;
+
+				  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+				  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+				  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+				  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+				  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+					}
+					.tabla40{
+					width: 500px;
+				  background: #fff;
+				  border-radius: 10px;
+				  overflow: hidden;
+				  align-items: center;
+				  position: absolute;
+				  top: 400px;
+				  left:660px;
+				  z-index:10;
+
+				  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+				  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+				  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+				  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+				  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+					}
+					.imagn:hover{
+					border-radius:50%;
+					-webkit-border-radius:50%;
+					box-shadow: 0px 0px 15px 15px #00FEB5;
+					-webkit-box-shadow: 0px 0px 15px 15px #00FEB5;
+					transform: rotate(360deg);
+					-webkit-transform: rotate(360deg);
+					}
+			</style>
+		<div class="tabla10 p-l-50 p-r-50 p-t-30 p-b-30">
+			
+				<div class="login100-form-logo" align="center">
+					<h3>Registrar PLantación</h3>
+				</div>
+
+				<img class="imagn" src="images/Plantacion.jpg" alt="images/Plantacion.jpg" style="width:100%" align="center">
 		</div>
+		<br>
+		<div class="tabla20 p-l-50 p-r-50 p-t-30 p-b-30">		
+			<div class="login100-form-logo" align="center">
+					<h3>Registrar Cosecha</h3>
+			</div>
+				<img href="new_cosecha.php" class="imagn" src="images/Cosecha.jpg" alt="images/Cosecha.jpg" style="width:100%" align="center">
+				
+		</div>
+		<br>
+		<div class="tabla30 p-l-50 p-r-50 p-t-30 p-b-30">		
+			<div class="login100-form-logo" align="center">
+					<h3>Registrar riego</h3>
+			</div>	
+				<img class="imagn" src="images/Riego.png" alt="images/Riego.jpg" style="width:100%" align="center">
+		</div>
+		<br>
+		<div class="tabla40 p-l-50 p-r-50 p-t-30 p-b-30">		
+			<div class="login100-form-logo" align="center">
+					<h3>Registrar tratamiento</h3>
+			</div>	
+			<img class="imagn" src="images/Tratamiento.jpg" alt="images/Plantacion.jpg" style="width:100%" align="center">
+			
+		</div>
+
+	</div>
 		
 		<div id="dropDownSelect1"></div>
 

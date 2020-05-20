@@ -12,6 +12,7 @@ class plagasVO {
 	private $id;
 	private $nombre;
 	private $descripcion;
+	private $imagen;
 
 	
 	//METODOS
@@ -26,12 +27,16 @@ class plagasVO {
 	public function setDescripcion($valor) {
 		$this->descripcion = $valor;
 	}
+	public function setImagen($valor) {
+		$this->imagen = $valor;
+	}
 
 	
-	public function setAll($id, $nombre, $descripcion) {
+	public function setAll($id, $nombre, $descripcion, $imagen) {
 		$this->id = $id;
 		$this->nombre = $nombre;
 		$this->descripcion = $descripcion;
+		$this->imagen = $imagen;
 	}
 	
 	//GET - Recuperar
@@ -48,6 +53,9 @@ class plagasVO {
 		return $this->descripcion;
 	} 
 	
+	public function getImagen(){
+		return $this->imagen;
+	}
 }
 
 /*

@@ -9,7 +9,7 @@
     $todos=$dao->selectAll();
     $dao2=new typeDAO();
     $todos2=$dao2->selectAll();
-    $contador=0;;
+    $contador=0;
 	?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,49 +51,6 @@
 <div class="topnav">
   <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 </div>
-<style>
-			/* Add a black background color to the top navigation */
-	.menu {
-		background-color: #FFD74F;
-		shape-margin: 10px;
-	  	overflow: hidden;
-	  	margin: 5;
-	  	display: block;
-		text-align: center;
-		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	}
-
-	/* Style the links inside the navigation bar */
-	.menu a {
-	  float: center;
-	  color: #000000;
-	  text-align: center;
-	  padding: 20px 20px;
-	  text-decoration: none;
-	  font-size: 15px;
-	  text-align: center;
-	  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	}
-
-	/* Change the color of links on hover */
-	.menu a:hover {
-	  background-color: #FFFBB5;
-	  color: black;
-	  opacity: 0.7;
-	}
-
-	/* Add a color to the active/current link */
-	.menu a.active {
-	  background-color: #E7AAFA;
-	  color: white;
-	}
-	.menu img{
-			width: 60px;
-			height: 60px;
-		}
-	</style>
-	<div class="menu">
-	</div>
 	
 	<div class="container-login100" style="background-image: url('images/banana-crop.jpg');">
 		<div class="wrap-login100 p-l-50 p-r-50 p-t-30 p-b-30">
@@ -104,15 +61,15 @@
 				<span class="login100-form-title p-b-37">
 					Nuevo Usuario
 				</span>
-				<div class="wrap-input100 validate-input m-b-25" >
+				<div class="wrap-input10 validate-input m-b-25" >
 					<input class="input100" type="text" name="n" placeholder="Nombre" required="required">
 					<span class="focus-input100"></span>
 				</div>
-				<div class="wrap-input100 validate-input m-b-25" >
+				<div class="wrap-input10 validate-input m-b-25" >
 					<input class="input100" type="text" name="ap" placeholder="Apellido" required="required">
 					<span class="focus-input100"></span>
 				</div>
-				<div class="wrap-input100 validate-input m-b-20" >
+				<div class="wrap-input10 validate-input m-b-20" >
 					<select class="input100" name="tu" required="required">
 				        <option value="0">Tipo de Usuario:</option>
 				        <?php
@@ -128,16 +85,16 @@
 				</div>
 
 				
-				<div class="wrap-input100 validate-input m-b-20" >
+				<div class="wrap-input10 validate-input m-b-20" >
 					<input class="input100" type="email" name="em" placeholder="Email" required="required">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" >
+				<div class="wrap-input10 validate-input m-b-25" >
 					<input class="input100" type="password" name="pass" placeholder="Password" required="required">
 					<span class="focus-input100"></span>
 				</div>
-				<div class="wrap-input100 validate-input m-b-25" >
+				<div class="wrap-input10 validate-input m-b-25" >
 					<input class="input100" type="password" name="confpass" placeholder="Confirmar Password" required="required">
 					<span class="focus-input100"></span>
 				</div>

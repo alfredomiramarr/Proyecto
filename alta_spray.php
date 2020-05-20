@@ -6,9 +6,8 @@
 	
 
 	//RECIBIR DATOS DEL FORMULARIO
-	$nombre=htmlspecialchars($_POST["n"]);
-	$tipo=htmlspecialchars($_POST["t"]);
-	$cantidad=htmlspecialchars($_POST["q"]);
+	$name=htmlspecialchars($_POST["n"]);
+	$desc=htmlspecialchars($_POST["d"]);
 	$imgname=$_FILES['img']['name'];
 	$imgarchivo=$_FILES['img']['tmp_name'];
 	$imgruta="images";
@@ -16,23 +15,23 @@
 
 	move_uploaded_file($imgarchivo, $imgruta);
 
-	//echo $nombre, $location, $tipo, $cantidad;
 
-	require_once("include/cultivosDAO.php");
+	//echo $id, $zona;
 
-	$objetoVO = new cultivosVO();
-	$objetoDAO = new cultivosDAO();
+	require_once("include/sprayDAO.php");
 
-	$objetoVO->setAll(0, $nombre, $tipo, $cantidad, $imgruta);
+	$objetoVO = new sprayVO();
+	$objetoDAO = new sprayDAO();
+
+	$objetoVO->setAll(0, $name, $desc, $imgruta);
 	$bandera=$objetoDAO->Insert($objetoVO);
 
 	if($bandera) {
 		//echo "LISTO"
-		header('Location: cat_cultivos.php');
+		header('Location: cat_spray.php');
 	} else {
 		//echo "Registro No inserado";
-		header('Location: new_cultivo.php');
+		header('Location: new_spray.php');
 	}
-
 
 ?>

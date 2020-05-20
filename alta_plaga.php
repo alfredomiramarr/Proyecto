@@ -9,6 +9,12 @@
 	//$id=htmlspecialchars($_POST["i"]);
 	$nombre=htmlspecialchars($_POST["n"]);
 	$descripcion=htmlspecialchars($_POST["d"]);
+	$imgname=$_FILES['img']['name'];
+	$imgarchivo=$_FILES['img']['tmp_name'];
+	$imgruta="images";
+	$imgruta=$imgruta."/".$imgname;
+
+	move_uploaded_file($imgarchivo, $imgruta);
 
 	//echo $id, $nombre, $descripcion;
 
@@ -17,7 +23,7 @@
 	$objetoVO = new plagasVO();
 	$objetoDAO = new plagasDAO();
 
-	$objetoVO->setAll(0, $nombre, $descripcion);
+	$objetoVO->setAll(0, $nombre, $descripcion, $imgruta);
 	$bandera=$objetoDAO->Insert($objetoVO);
 
 	if($bandera) {

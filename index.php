@@ -1,3 +1,47 @@
+<?php
+ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	
+	
+	session_start();
+	
+	if(isset($_SESSION['User_ID'])){
+		header('Location: home.php');
+	}
+	
+	require 'conexion.php';
+	
+	if(!empty($_POST['email']) && !empty($_POST['pass'])){
+		//$records = $conexion->prepare("SELECT User_ID, Admin_ID, Admin_name, Admin_Last_Name, Admin_Email, Admin_Password FROM T_Admin
+		//WHERE Admin_Email='".$_POST['email']."'");
+		$sql2="SELECT User_ID, Admin_ID, Admin_name, Admin_Last_Name, Admin_Email, Admin_Password FROM T_Admin
+		WHERE Admin_Email='".$_POST['email']."' limit 1";
+		//print_r($records);
+		//$records->bindParam("s",$_POST['email']);
+		//$records->execute();
+		//$results = $records->fetch(PDO::FETCH_ASSOC);
+		
+		$result = mysqli_query($conexion,$sql2);
+
+		$row = mysqli_fetch_assoc($result);
+		$rowcount=mysqli_num_rows($result);
+	
+		$message = '';
+	
+		if($rowcount>0 && $_POST['pass']=$row['Admin_Password']){
+			echo "Entro el ID ".$row['User_ID'];
+			$_SESSION['User_ID'] = $row['User_ID'];
+			header('Location: home.php');
+		}else{
+			$message = 'Sorry, those credentials do not exist';
+		}
+	}
+	
+	//echo $_SESSION['User_ID']."SESION";
+	//echo "EMAIL".$_POST['email'];
+	//echo "PASSWORD".$_POST['pass'];
+	?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,12 +141,12 @@
 					Sign In
 				</span>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter eMail">
+				<div class="wrap-input10 validate-input m-b-20" data-validate="Enter eMail">
 					<input class="input100" type="correo" name="email" placeholder="Mail " required="required">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter Password">
+				<div class="wrap-input10 validate-input m-b-25" data-validate = "Enter Password">
 					<input class="input100" type="password" name="pass" placeholder="Password" required="required">
 					<span class="focus-input100"></span>
 				</div>
@@ -114,7 +158,7 @@
 				</div>
 
 				<div class="text-center p-t-40 p-b-20">
-					<a href="Forgot.html"class="txt1">
+					<a href="recopass.html"class="txt1">
 						Olvide mi contraseña
 					</a>
 				</div>

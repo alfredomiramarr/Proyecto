@@ -47,8 +47,9 @@ mysqli_close($conexion);
 <body>
 <div class="topnav">
   <a href="home.php">Inicio</a>
+  <a href="cat_cultivos.php">Catálogos</a>
   <a class="active" href="#">Nuevo Registro</a>
-  <a href="cat_zonas.php">Catálogos</a>
+  
 
   <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 </div>
@@ -94,13 +95,10 @@ mysqli_close($conexion);
 		}
 	</style>
 	<div class="menu">
-	  <a href="new_zona.php">ZONAS</a>
 	  <a href="new_cultivo.php">CULTIVO</a>
-	  <a href="new_riego.php">RIEGO</a>
-	  <a href="new_abono.php">ABONO</a>
+	  <a href="new_abono.php">FERTILIZANTE</a>
 	  <a class="active" href="#">PLAGA</a>
-	  <a href="new_cosecha.php">COSECHA</a>
-	  <a href="new_tratamiento.php">TRATAMIENTOS</a>
+	  <a href="new_riego.php">RIEGO</a>
 
 	</div>
 	
@@ -114,12 +112,16 @@ mysqli_close($conexion);
 					Nueva Plaga
 				</span>
 
-				<div class="wrap-input100 validate-input m-b-25" >
+				<div class="wrap-input10 validate-input m-b-25" >
 					<input class="input100" type="text" name="n" placeholder="Nombre de la plaga" required="required">
 					<span class="focus-input100"></span>
 				</div>
-				<div class="wrap-input100 validate-input m-b-20" >
+				<div class="wrap-input10 validate-input m-b-20" >
 					<input class="input100" type="text" name="d" placeholder="Descripción" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input10 validate-input m-b-25" >
+					<input class="input100" type="file" name="img" placeholder="Imagen">
 					<span class="focus-input100"></span>
 				</div>
 				

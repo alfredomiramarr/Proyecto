@@ -27,7 +27,7 @@ class haciendaDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new haciendaVO();
-			$vo->setAll($fila['Hacienda_ID'],$fila['Zone_ID'],$fila['Owner_ID'],$fila['Admin_ID'],$fila['Name'],$fila['Location'],$fila['Number'],$fila['Creation_Date']);
+			$vo->setAll($fila['Hacienda_ID'],$fila['Zone_ID'],$fila['Name'],$fila['Location'],$fila['Creation_Date']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -37,7 +37,7 @@ class haciendaDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO C_Hacienda (Name, Location, Numbe, Creation_Date) VALUES ('".$vo->getName()."','".$vo->getLocation()."','".$vo->getNumber()."',".$vo->getCreation_Date().")";
+		$sql = "INSERT INTO C_Hacienda (Zone_ID, Name, Location, Creation_Date) VALUES ('".$vo->getZoneId()."'".$vo->getName()."','".$vo->getLocation()."',".$vo->getCreation_Date().")";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

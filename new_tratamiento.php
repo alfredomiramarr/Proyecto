@@ -113,12 +113,12 @@
 					Nuevo Tratamiento
 				</span>
 
-				<div class="wrap-input100 validate-input m-b-20" >
+				<div class="wrap-input10 validate-input m-b-20" >
 					<input class="input100" type="text" name="n" placeholder="Nombre del tratamiento" required="required">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" >
+				<div class="wrap-input10 validate-input m-b-25" >
 					<input class="input100" type="text" name="t" placeholder="Tipo de tratamiento" required="required">
 					<span class="focus-input100"></span>
 				</div>
