@@ -8,8 +8,8 @@
 	//RECIBIR DATOS DEL FORMULARIO
 	$name=htmlspecialchars($_POST["n"]);
 	$desc=htmlspecialchars($_POST["d"]);
-	$imgname=$_FILES['img']['name'];
-	$imgarchivo=$_FILES['img']['tmp_name'];
+	$imgname=$_FILES["i"]["name"];
+	$imgarchivo=$_FILES["i"]["tmp_name"];
 	$imgruta="images";
 	$imgruta=$imgruta."/".$imgname;
 
@@ -23,15 +23,23 @@
 	$objetoVO = new sprayVO();
 	$objetoDAO = new sprayDAO();
 
-	$objetoVO->setAll(0, $name, $desc, $imgruta);
+	$objetoVO->setAll(0, $name, $desc, $imgruta, 0);
 	$bandera=$objetoDAO->Insert($objetoVO);
 
 	if($bandera) {
 		//echo "LISTO"
-		header('Location: cat_spray.php');
+		//header('Location: cat_spray.php');
+		echo '<script>
+	      alert("Registro exitoso");
+		  window.location = "cat_spray.php";
+		  </script>';
 	} else {
 		//echo "Registro No inserado";
-		header('Location: new_spray.php');
+		//header('Location: new_spray.php');
+		echo '<script>
+			      alert("Registro no exitoso.");
+				  window.history.go(-1);
+				  </script>';
 	}
 
 ?>

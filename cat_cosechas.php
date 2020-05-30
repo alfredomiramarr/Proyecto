@@ -53,9 +53,10 @@
 
 
 	<div class="topnav">
-	  <a href="home.php">Home</a>
-	  <a href="new_zona.php">New Crop</a>
-	  <a class="active"href="#">Catalogos</a>
+	  <a href="home_trabajador.php">Home</a>
+	  <a href="#">Catalogos</a>
+	  <a href="new_cosecha.php">Registro de actividades</a>
+	  
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
 	</div>
@@ -101,15 +102,13 @@
 		}
 	</style>
 	<div class="menu">
-	  <a href="cat_zonas.php">ZONAS</a>
 	  <a href="cat_cultivos.php">CULTIVOS</a>
-	  <a href="cat_riego.php">RIEGO</a>
 	  <a href="cat_abonos.php">ABONO</a>
 	  <a href="cat_plagas.php">PLAGAS</a>
-	  <a class="active" href="#">COSECHA</a>
-	  <a href="cat_tratamientos.php">TRATAMIENTOS</a>
+	  <a href="cat_riego.php">RIEGO</a>
 
-	</div>		
+	</div>	
+	</head>	
 		<div class="container-login100" style="background-image: url('images/banana-back.jpg');">
 			<style>
 				.tabla10 {
@@ -131,7 +130,7 @@
 					<div class="login100-form-logo" align="center">
 						<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
 						<h1>COSECHA</h1>
-</head>
+
 				<style>
 					table.paleBlueRows {
 					  font-family: SourceSansPro-Regular;

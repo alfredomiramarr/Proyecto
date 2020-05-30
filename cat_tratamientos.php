@@ -171,87 +171,85 @@
 				<table class="paleBlueRows" align="center">
 					<thead>
 					<tr>
-					
-					<th>NOMBRE DEL TRATAMIENTO</th>
-					<th>DESCRIPCION</th>					
-					
+					<th>ID</th>
+					<th>HACIENDA</th>
+					<th>CULTIVO </th>
+					<th>SEMAFORO</th>
+					<th>FECHA DE REGISTRO</th>	
+					<th>FECHA DE ASIGNACION</th>		
 					</tr>
 					</thead>
-
-					<style>
-						.btn {
-						  display: -webkit-box;
-						  display: -webkit-flex;
-						  display: -moz-box;
-						  display: -ms-flexbox;
-						  display: flex;
-						  justify-content: center;
-						  align-items: center;
-						  padding: 0 10px;
-						  min-width: 70px;
-						  height: 15px;
-						  background-color: #3ADEE7;
-						  border-radius: 25px;
-
-						  font-family: SourceSansPro-SemiBold;
-						  font-size: 10px;
-						  color: black;
-						  line-height: 1.2;
-						  text-transform: uppercase;
-
-						  -webkit-transition: all 0.4s;
-						  -o-transition: all 0.4s;
-						  -moz-transition: all 0.4s;
-						  transition: all 0.4s;
-
-						  box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
-						  -moz-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
-						  -webkit-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
-						  -o-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
-						  -ms-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
-						}
-
-						.btn:hover {
-						  background-color: #4b2354;
-						  box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
-						  -moz-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
-						  -webkit-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
-						  -o-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
-						  -ms-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
-						}
-					</style>
 					<tbody>
-					<?php
-					//include("include/conexion.php");
-					$sql = "SELECT * FROM T_Care;";
-					$result = mysqli_query($conexion,$sql);
+<?php
+include "conexion.php";
 
-					if($result) {
+//$sql="SELECT Code,CreatedDate,Asign_Date FROM T_MaintenanceAsign";
+$sql="SELECT T.Care_ID, H.Name, C.Crop_Name, S.Img ,T.Care_Date, T.Asing_Date FROM T_Care T, C_Hacienda H, C_Crop C, C_Trafic_Light S WHERE T.Hacienda_ID = H.Hacienda_ID AND C.Crop_ID = T.Crop_ID AND T.Trafic_Light_ID = S.Trafic_Light_ID";
+$resultado=mysqli_query($conexion,$sql);
+if($resultado){
 
-					while ($row =mysqli_fetch_assoc($result)){
+	while($row = mysqli_fetch_array($resultado))
+{	
+	$codigo=$row['Care_ID'];
+	$fecha_inicio = $row['Care_Date'];
+	$fecha_fin=$row['Asing_Date'];
+	$hoy= date('Y-m-d');
+	$hoy1=date_create($hoy);
+	//echo $hoy;
 
-					echo "<tr>";
-					
-					echo "<td> ". $row ["Care_Name"]. "</td>";
-					echo "<td> ". $row ["Care_Tipe"]. "</td>";
 
-					echo "<td> <a href 'editar.php?no=".$row["Care_ID"]."'> <button type='submit'  name='editar' class='btn'>Editar</button></a><p>...</p>
-					<a href 'modificar.php?no=".$row["Care_ID"]."'> <button type='submit' name='eliminar' class='btn'>Eliminar</button></a></div></td>";
+	$fecha_1= date_create($fecha_inicio);
+	$fecha_2=date_create($fecha_fin);
+	//echo"Esta es fecha inicio".$fecha_inicio;
+	//echo "Esta es fecha fin".$fecha_fin;
 
+	$interval = date_diff($hoy1,$fecha_2);
+
+	$prueba=$interval ->format('%R%a');
+	//echo "Este es la pruena" .$prueba;
+
+//echo "Hola".$interval;
+//print_r($interval);
+	if ($prueba >'7' ) {
+   	$sql="UPDATE T_Care SET Trafic_Light_ID = 181010 WHERE Care_ID =$codigo";
+		$result=mysqli_query($conexion,$sql);
+		//echo "Actualizacion verde con exito";
+	
+	} else if ($prueba<='7' && $prueba >'0'){
+    	$sql="UPDATE T_Care SET Trafic_Light_ID = 181020 WHERE Care_ID =$codigo";
+		$result=mysqli_query($conexion,$sql);
+		//echo "Actualizacion amarillo con exito";
+	} 	else {
+		if ($prueba<= '0')
+		{
+			$sql="UPDATE T_Care SET Trafic_Light_ID = 181030 WHERE Care_ID =$codigo";
+		$result=mysqli_query($conexion,$sql);
+		//echo "Actualizacion con rojo exito";
+		
+		}   
+	}
+
+	echo "<tr>";
+					echo "<td> ". $row ["Care_ID"]. "</td>";
+					echo "<td> ". $row ["Name"]. "</td>";
+					echo "<td> ". $row ["Crop_Name"]. "</td>";
+					echo '<td><img src="'.$row["Img"].'" alt="'.$row["Img"].'"style="width:40%;"></td>';
+					echo "<td> ". $row ["Care_Date"]. "</td>";
+					echo "<td> ". $row ["Asing_Date"]. "</td>";
+
+					echo "<td><a href='eliminar_tratamiento.php?id=".$row["Care_ID"]."' style='color:red;''>ELIMINAR</a></div></td>";
 					
 					echo "</tr>";
 					}
-					foreach($result as $row){
 
+}
+else {
+					echo "No hay registros para mostrar";
 					}
-
-					} else {
-					echo "Error";
-					}
-					?>
-				</tbody>
-			</table>
-			</div>
+				?>
+					</tbody>
+				</table>
+				</div>
 			<div class="text-center p-t-40 p-b-20">
 					<a href="new_tratamiento.php" class="txt1">
 						Nuevo Tratamiento

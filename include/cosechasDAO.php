@@ -1,6 +1,7 @@
 <?php
 require_once("cosechasVO.php");
 
+
 class cosechasDAO {
 	
 	private $host = "localhost";
@@ -23,7 +24,7 @@ class cosechasDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new cosechasVO();
-			$vo->setAll($fila['Harvest_ID'],$fila['Hacienda_ID'],$fila['Crop_ID'], $fila['Harv_Quant'], $fila['Harvest_Date']);
+			$vo->setAll($fila['Harvest_ID'],$fila['Hacienda_ID'],$fila['Crop_ID'], $fila['Harv_Quant'], $fila['Harvest_Date'], $fila['Status']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,25 +34,23 @@ class cosechasDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_Harvest (Harvest_ID, Hacienda_ID, Crop_ID, Harv_Quant, Harvest_Date) VALUES ('".$vo->getId()."','".$vo->getHaciendaId()."','".$vo->getCropId()."', ".$vo->getQuant().",'".$vo->getDate()."')";
+		$sql = "INSERT INTO T_Harvest (Hacienda_ID, Crop_ID, Harv_Quant) VALUES ('".$vo->getHaciendaId()."','".$vo->getCropId()."', ".$vo->getQuant().")";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;
 		else
 			return false;		
 	}
+
+	
 	
 	
 }
-
 /*
 echo "DAO -";
-$objeto = new PokemonDAO();
-//print_r($objeto->selectAll());
+$objeto = new cosechasDAO();
+print_r($objeto->haciendaUno());*/
 
-$vo = new PokemonVO();
-$vo->setAll(0,"Pikachu","Electrico","35","who.jpg");
-$objeto->Insert($vo);
-*/
+
 
 ?>

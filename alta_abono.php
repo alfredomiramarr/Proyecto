@@ -9,13 +9,13 @@
 	//$id=htmlspecialchars($_POST["i"]);
 	$nombre=htmlspecialchars($_POST["n"]);
 	$descrip=htmlspecialchars($_POST["des"]);
+	//$i=htmlspecialchars($_POST["img"]);
 	$imgname=$_FILES['img']['name'];
 	$imgarchivo=$_FILES['img']['tmp_name'];
 	$imgruta="images";
 	$imgruta=$imgruta."/".$imgname;
 
 	move_uploaded_file($imgarchivo, $imgruta);
-
 
 	//echo $id, $nombre, $descripcion;
 
@@ -24,15 +24,26 @@
 	$objetoVO = new abonosVO();
 	$objetoDAO = new abonosDAO();
 
-	$objetoVO->setAll(0, $nombre, $descrip, $imgruta);
+	$objetoVO->setAll(0, $nombre, $descrip, $imgruta, 0);
 	$bandera=$objetoDAO->Insert($objetoVO);
 
 	if($bandera) {
-		//echo "LISTO"
-		header('Location: cat_abonos.php');
+		//echo "LISTO";
+		//echo $i;
+		//echo $imgruta;
+		
+		//header('Location: cat_abonos.php');
+		echo '<script>
+	      alert("Registro exitoso");
+		  window.location = "cat_abonos.php";
+		  </script>';
 	} else {
 		//echo "Registro No inserado";
-		header('Location: new_abono.php');
+		//header('Location: new_abono.php');
+		echo '<script>
+			      alert("Registro no exitoso.");
+				  window.history.go(-1);
+				  </script>';
 	}
 
 ?>

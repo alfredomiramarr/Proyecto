@@ -23,7 +23,7 @@ class abonosDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new abonosVO();
-			$vo->setAll($fila['Fertilizer_ID'],$fila['Name'],$fila['F_Desc'],$fila['Fertilizer_Img']);
+			$vo->setAll($fila['Fertilizer_ID'],$fila['Name'],$fila['F_Desc'],$fila['Fertilizer_Img'],$fila['Status']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))

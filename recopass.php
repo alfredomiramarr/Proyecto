@@ -1,5 +1,6 @@
 <?php
 include 'conexion.php';
+header("Content-Type: text/html; charset=ISO-8859-1", true);
 $to = htmlspecialchars($_POST['em']);
 $subject = "Reestablecer contraseña (No reply)";
 $random = mt_rand(100000,999999);
@@ -9,9 +10,9 @@ $message = "
 <title> Mail </title>
 </head>
 	<body>
-	<p> Hola, has solicitado el cambio de tu contraseña; tu código de confirmación es:  $random. </pr> 
-	<p> Ingresa a la siguiente liga para reestablecer tu contraseña <a href = 'http://nemonico.com.mx/alfredo/NewProyect/cambiarpass.html'> enlace </a> para que realices el cambio.</p> <br>
-	<p> Cualquier duda o aclaración, por favor comuniquese con su equipo se soporte.</p>
+	<p> Hola, has solicitado el cambio de tu contrase&#241a; tu c&#243digo de confirmaci&#243n es:  $random. </pr> 
+	<p> Ingresa a la siguiente liga para reestablecer tu contrase&#241a <a href = 'http://nemonico.com.mx/alfredo/NewProyect/cambiarpass.html'> enlace </a> para que realices el cambio.</p> <br>
+	<p> Cualquier duda o aclaraci&#243n, por favor comuniquese con su equipo se soporte.</p>
 	</body>
 	</html>
 ";

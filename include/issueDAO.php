@@ -23,7 +23,7 @@ class issueDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new issueVO();
-			$vo->setAll($fila['Issue_ID'], $file['Crop_Id'], $fila['Plague_ID'],$fila['Care_ID'],$fila['Descripción'],$fila['Fecha_Alerta'],$fila['Traffic_Light']);
+			$vo->setAll($fila['Issue_ID'], $fila['Hacienda_ID'], $file['Crop_ID'], $fila['Plague_ID'],$fila['Spray_ID'],$fila['Description'],$fila['Fecha_Alerta'],$fila['Trafic_Light_ID'],$fila['Status']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,13 +33,19 @@ class issueDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_Issue (Crop_Id, Plague_ID, Care_ID, Descripción, Fecha_Alerta, Traffic_Light) VALUES ('".$vo->getPlagueId()."','".$vo->getCareId()."','".$vo->getDescripcion()."','".$vo->getFechaAlerta()."','".$vo->getTrafficLight()."')";
+		$sql = "INSERT INTO T_Issue (Hacienda_ID, Crop_ID, Spray_ID, Plague_ID, Trafic_Light_ID, Description) VALUES ('".$vo->getHaciendaID()."','".$vo->getCropId()."','".$vo->getCareId()."','".$vo->getPlagueId()."','".$vo->getTrafficLight()."','".$vo->getDescripcion()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
+			//echo $resultado."DAO - true";
 			return true;
 		else
-			return false;		
+			return false;
+			//echo $resultado."DAO - false";		
 	}
-	
-	
+		
 }
+/*
+echo "DAO - full";
+$objeto = new issueDAO();
+print_r($objeto->Insert());*/
+?>

@@ -13,6 +13,7 @@ class sprayVO {
 	private $nombre;
 	private $descrip;
 	private $img;
+	private $status;
 	
 	
 	//METODOS
@@ -30,14 +31,18 @@ class sprayVO {
 	public function setImg($valor) {
 		$this->img = $valor;
 	}
+	public function setStatus($valor) {
+		$this->status = $valor;
+	}
 
 
 	
-	public function setAll($id, $name, $descrip, $img) {
+	public function setAll($id, $name, $descrip, $img, $status) {
 		$this->id = $id;
 		$this->nombre = $name;
 		$this->descrip = $descrip;
 		$this->img = $img;
+		$this->status = $status;
 	}
 	
 	//GET - Recuperar
@@ -57,12 +62,10 @@ class sprayVO {
 	public function getImg() {
 		return $this->img;
 	} 
+	public function getStatus() {
+		return $this->status;
+	} 
 	
 }
 
-/*
-$variable = new PokemonVO();
-$variable->setImagen("4.png");
-echo "HOLA" . $variable->getImagen();
-*/
 ?>

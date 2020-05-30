@@ -11,12 +11,13 @@ $_SESSION['email'] = $correo;
 $varsesion = $_SESSION['email'];
 
 $pass= htmlspecialchars($_POST['pass']) ;
+$seed="Somebody*1975*Else";
 
 include "conexion.php";
 $sql = "SELECT Email, Password, Salt FROM T_User WHERE Email = '".$correo."'";
 $result= mysqli_query($conexion,$sql);
 $user = mysqli_fetch_assoc($result);
-$hashedPassword = hash("sha256", $pass.$user["Salt"]);
+$hashedPassword = hash("sha256", $pass.$user["Salt"].$seed);
 
 /*echo "Correo usuario=...".$correo;
 echo "<br>";
@@ -49,7 +50,7 @@ if ($user["Password"]==$hashedPassword)
 				{
 					session_start();
 					$_SESSION['Owner']='Owner';
-					header('location:home.php');
+					header('location:home_owner.php');
 				}
 				else
 				{
@@ -57,7 +58,7 @@ if ($user["Password"]==$hashedPassword)
 					{
 						session_start();
 					$_SESSION['Trabajador']='Trabajador';
-					header('location:home.php');
+					header('location:home_trabajador.php');
 					}
 				}
 			}

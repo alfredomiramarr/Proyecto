@@ -18,9 +18,13 @@
 
         <style type="text/css">
 .highcharts-figure, .highcharts-data-table table {
-    min-width: 360px; 
+    min-width: 310px; 
     max-width: 800px;
     margin: 1em auto;
+}
+
+#container {
+    height: 400px;
 }
 
 .highcharts-data-table table {
@@ -53,96 +57,116 @@
 
         </style>
     </head>
+    <?php
+
+    require_once("include/g3DAO.php");
+        $dao=new g3DAO();
+        $todos=$dao->selectAll();
+        $dq=new g3DAO();
+        $quant=$dq->selectAll();
+    ?>
     <body>
 <script src="Highcharts/code/highcharts.js"></script>
-<script src="Highcharts/code/modules/series-label.js"></script>
 <script src="Highcharts/code/modules/exporting.js"></script>
 <script src="Highcharts/code/modules/export-data.js"></script>
 <script src="Highcharts/code/modules/accessibility.js"></script>
 
 <figure class="highcharts-figure">
-    <div id="container"></div>
+    <div id="container3"></div>
     <p class="highcharts-description">
-        Basic line chart showing trends in a dataset. This chart includes the
-        <code>series-label</code> module, which adds a label to each line for
-        enhanced readability.
+        Cantidades de cultivos cosechados, identificando cuál es el cultivo que más se cosecha en la hacienda.
     </p>
 </figure>
 
 
 
-
-
         <script type="text/javascript">
-Highcharts.chart('container', {
-
+Highcharts.chart('container3', {
+    chart: {
+        type: 'bar'
+    },
     title: {
-        text: 'Solar Employment Growth by Sector, 2010-2016'
+        text: 'Cosechas'
     },
-
     subtitle: {
-        text: 'Source: thesolarfoundation.com'
+        text: 'Chiquita Banana'
     },
-
-    yAxis: {
-        title: {
-            text: 'Number of Employees'
-        }
-    },
-
     xAxis: {
-        accessibility: {
-            rangeDescription: 'Range: 2010 to 2017'
+        categories: [<?php
+
+            if(!empty($todos)){
+            
+            foreach ($todos as $objeto) {
+                
+                if($contador>0){
+                    echo ",";
+                }
+                echo "'".$objeto->getName()."'";
+                $contador = $contador + 1;
+            }
+        }
+        ?>
+        ],
+        title: {
+            text: null
         }
     },
-
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Cultivos',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: 'Piezas'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
     legend: {
         layout: 'vertical',
         align: 'right',
-        verticalAlign: 'middle'
+        verticalAlign: 'top',
+        x: -40,
+        y: 80,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+        shadow: true
     },
-
-    plotOptions: {
-        series: {
-            label: {
-                connectorAllowed: false
-            },
-            pointStart: 2010
-        }
+    credits: {
+        enabled: false
     },
-
     series: [{
-        name: 'Installation',
-        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-    }, {
-        name: 'Manufacturing',
-        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-    }, {
-        name: 'Sales & Distribution',
-        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-    }, {
-        name: 'Project Development',
-        data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-    }, {
-        name: 'Other',
-        data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-    }],
-
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
+        name: 'Totales',
+        data: [
+        <?php
+        $contador = 0;
+           if(!empty($quant)){
+            
+            foreach ($quant as $cant) {
+                
+                if($contador>0){
+                    echo ",";
                 }
+                //echo $cant->getQuant();
+                $variable=$cant->getQuant();
+                echo $variable;
+                $contador = $contador + 1;
             }
-        }]
-    }
-
+        }
+        ?>
+        ]
+    }]
 });
         </script>
     </body>

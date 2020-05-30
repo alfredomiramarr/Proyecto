@@ -23,7 +23,7 @@ class userDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new userVO();
-			$vo->setAll($fila['User_ID'],$fila['User_Type'],$fila['Name'],$fila['Last_Name'],$fila['Email'],$fila['Pass_Reco'],$fila['Password'],$fila['Salt'],$fila['Date_User']);
+			$vo->setAll($fila['User_ID'],$fila['User_Type'],$fila['Name'],$fila['Last_Name'],$fila['Email'],$fila['Pass_Reco'],$fila['Password'],$fila['Salt'],$fila['Date_User'],$fila['Status']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,7 +33,7 @@ class userDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO T_User (User_Type, Name, Last_Name, Email, Password, Salt, Date_User) VALUES ('".$vo->getUserType()."','".$vo->getUserName()."','".$vo->getUserLastName()."','".$vo->getUserEmail()."','".$vo->getUserPassword()."','".$vo->getSalt()."','".$vo->getDate()."')";
+		$sql = "INSERT INTO T_User (User_Type, Name, Last_Name, Email, Password, Salt) VALUES ('".$vo->getUserType()."','".$vo->getUserName()."','".$vo->getUserLastName()."','".$vo->getUserEmail()."','".$vo->getUserPassword()."','".$vo->getSalt()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

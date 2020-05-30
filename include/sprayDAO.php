@@ -23,7 +23,7 @@ class sprayDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new sprayVO();
-			$vo->setAll($fila['Spray_Id'],$fila['Spray_Name'],$fila['Spray_Desc'],$fila['Spray_Image']);
+			$vo->setAll($fila['Spray_Id'],$fila['Spray_Name'],$fila['Spray_Desc'],$fila['Spray_Image'],$fila['Status']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))
@@ -33,7 +33,7 @@ class sprayDAO {
 	}
 	
 	function Insert($vo) {
-		$sql = "INSERT INTO C_Spray (Spray_Name, Spray_Desc, Spray_Img) VALUES ('".$vo->getNombre()."','".$vo->getDescrip()."','".$vo->getImg()."')";
+		$sql = "INSERT INTO C_Spray (Spray_Name, Spray_Desc, Spray_Image) VALUES ('".$vo->getNombre()."','".$vo->getDescrip()."','".$vo->getImg()."')";
 		$resultado=mysqli_query($this->conn,$sql);
 		if($resultado)
 			return true;

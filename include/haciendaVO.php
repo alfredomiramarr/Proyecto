@@ -14,6 +14,7 @@ class haciendaVO {
 	private $name;
 	private $location;
 	private $creationDate;
+	private $status;
 	
 	//METODOS
 	
@@ -33,13 +34,17 @@ class haciendaVO {
 	public function setCreationDate($valor) {
 		$this->creationDate = $valor;
 	}
+	public function setStatus($valor) {
+		$this->status = $valor;
+	}
 	
-	public function setAll($haciendaId, $zoneId, $name, $location, $creationDate) {
+	public function setAll($haciendaId, $zoneId, $name, $location, $creationDate, $status) {
 		$this->haciendaId = $haciendaId;
 		$this->zoneId = $zoneId;
 		$this->name = $name;
 		$this->location = $location;
 		$this->creationDate = $creationDate;
+		$this->status = $status;
 	}
 	
 	//GET - Recuperar
@@ -62,6 +67,9 @@ class haciendaVO {
 	
 	public function getCreationDate() {
 		return $this->creationDate;
+	} 
+	public function getStatus() {
+		return $this->status;
 	} 
 	
 }

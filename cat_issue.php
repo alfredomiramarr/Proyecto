@@ -46,9 +46,9 @@
 <body>
 
 	<div class="topnav">
-	  <a href="home.php">Inicio</a>
-	  <a href="new_zona.php">Nuevo Registro</a>
-	  <a class="active"href="#">Catálogos</a>
+	  <a href="home_trabajador.php">Home</a>
+	  <a class="active" href="#">Catalogos</a>
+	  <a href="new_cosecha.php">Registro de actividades</a>
 	 
 
 	  <img src="images/icon-banana.png" alt="Chiquita Banana" align="right" height="52" width="52">
@@ -95,20 +95,18 @@
 		}
 	</style>
 	<div class="menu">
-	  <a class="active" href="#home">ZONAS</a>
 	  <a href="cat_cultivos.php">CULTIVOS</a>
-	  <a href="cat_riego.php">RIEGO</a>
 	  <a href="cat_abonos.php">ABONO</a>
 	  <a href="cat_plagas.php">PLAGAS</a>
-	  <a href="cat_cosechas.php">COSECHA</a>
-	  <a href="cat_tratamientos.php">TRATAMIENTOS</a>
+	  <a href="cat_riego.php">RIEGO</a>
+
 
 	</div>
 		
 		<div class="container-login100" style="background-image: url('images/banana-back.jpg');">
 			<style>
 				.tabla10 {
-				  width: 700px;
+				  width: 800px;
 				  background: #fff;
 				  border-radius: 10px;
 				  overflow: hidden;
@@ -125,7 +123,7 @@
 				<form class="login100-form validate-form">
 					<div class="login100-form-logo" align="center">
 						<img src="images/logoempresa.png" alt="MILO" height="52" width="52">
-						<h1>ZONAS</h1>
+						<h1>RIESGO</h1>
 </head>
 			<style>
 					table.paleBlueRows {
@@ -171,7 +169,12 @@
 					<thead>
 					<tr>
 					<th>ID</th>
-					<th>ZONA</th>
+					<th>CULTIVO AFECTADO</th>
+					<th>RIESGO DETECTADO</th>
+					<th>CUIDADO ADMINISTRADO</th>
+					<th>DESCRIPCIÓN</th>
+					<th>FECHA DE REGISTRO</th>
+					<th>STATUS</th>
 					</tr>
 					</thead>
 
@@ -220,7 +223,7 @@
 					<tbody>
 					<?php
 					//include("include/conexion.php");
-					$sql = "SELECT * FROM T_Zone;";
+					$sql = "SELECT * FROM T_Issue;";
 					$result = mysqli_query($conexion,$sql);
 
 					if($result) {
@@ -228,11 +231,16 @@
 					while ($row =mysqli_fetch_assoc($result)){
 
 					echo "<tr>";
-					echo "<td> ". $row ["Zone_ID"]. "</td>";
-					echo "<td> ". $row ["Zone"]. "</td>";
+					echo "<td> ". $row ["Issue_ID"]. "</td>";
+					echo "<td> ". $row ["Crop_Id"]. "</td>";
+					echo "<td> ". $row ["Plague_ID"]. "</td>";
+					echo "<td> ". $row ["Care_ID"]. "</td>";
+					echo "<td> ". $row ["Description"]. "</td>";
+					echo "<td> ". $row ["Fecha_Alerta"]. "</td>";
+					echo "<td> ". $row ["Traffic_Light"]. "</td>";
 
-					echo "<td> <a href 'editar.php?no=".$row["Zone_ID"]."'> <button type='submit'  name='editar' class='btn'>Editar</button></a><p>...</p>
-					<a href 'modificar.php?no=".$row["Zone_ID"]."'> <button type='submit' name='eliminar' class='btn'>Eliminar</button></a></div></td>";
+					echo "<td> <a href 'editar.php?no=".$row["Issue_ID"]."'> <button type='submit'  name='editar' class='btn'>Editar</button></a><p>...</p>
+					<a href 'modificar.php?no=".$row["Issue_ID"]."'> <button type='submit' name='eliminar' class='btn'>Eliminar</button></a></div></td>";
 					
 					echo "</tr>";
 					}

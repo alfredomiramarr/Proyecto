@@ -10,13 +10,16 @@ class tratamientoVO {
 	//ATRIBUTOS
 	
 	private $careId;
+	private $haciendaId;
+	private $cultivoId;
 	private $riegoId;
 	private $abonoId;
-	private $plagaId;
-	//private $cosechaId;
+	private $sprayId;
 	private $semaforoId;
-	private $nombre;
-	private $tipo;
+	private $desc;
+	private $date;
+	private $asignDate;
+	private $status;
 	
 	//METODOS
 	
@@ -24,37 +27,49 @@ class tratamientoVO {
 	public function setCareId($valor) {
 		$this->careId = $valor;
 	}
+	public function setHaciendaId($valor) {
+		$this->haciendaId = $valor;
+	}
+	public function setCultivoId($valor) {
+		$this->cultivoId = $valor;
+	}
 	public function setRiegoId($valor) {
 		$this->riegoId = $valor;
 	}
 	public function setAbonoId($valor) {
 		$this->abonoId = $valor;
 	}
-	public function setPlagaId($valor) {
-		$this->plagaId = $valor;
+	public function setSprayId($valor) {
+		$this->sprayId = $valor;
 	}
-	/*public function setCosechaId($valor) {
-		$this->cosechaId = $valor;
-	}*/
 	public function setSemaforoId($valor) {
 		$this->semaforoId = $valor;
 	}
-	public function setNombre($valor) {
-		$this->nombre = $valor;
+	public function setDesc($valor) {
+		$this->desc = $valor;
 	}
-	public function setTipo($valor) {
-		$this->tipo = $valor;
+	public function setDate($valor) {
+		$this->date = $valor;
+	}
+	public function setAsignDate($valor) {
+		$this->asignDate = $valor;
+	}
+	public function setStatus($valor) {
+		$this->status = $valor;
 	}
 	
-	public function setAll($careId, $riegoId, $abonoId, $plagaId,/* $cosechaId,*/ $semaforoId, $nombre, $tipo) {
+	public function setAll($careId, $haciendaId, $cultivoId, $riegoId, $abonoId, $sprayId, $semaforoId, $desc, $date,$asignDate, $status) {
 		$this->careId = $careId;
+		$this->haciendaId = $haciendaId;
+		$this->cultivoId = $cultivoId;
 		$this->riegoId = $riegoId;
 		$this->abonoId = $abonoId;
-		$this->plagaId = $plagaId;
-		/*$this->cosechaId = $cosechaId;*/
+		$this->sprayId = $sprayId;
 		$this->semaforoId = $semaforoId;
-		$this->nombre = $nombre;
-		$this->tipo = $tipo;
+		$this->desc = $desc;
+		$this->date = $date;
+		$this->asignDate = $asignDate;
+		$this->status = $status;
 	}
 	
 	//GET - Recuperar
@@ -62,7 +77,12 @@ class tratamientoVO {
 	public function getCareId() {
 		return $this->careId;
 	} 
-	
+	public function getHaciendaId() {
+		return $this->haciendaId;
+	}
+	public function getCultivoId() {
+		return $this->cultivoId;
+	}
 	public function getRiegoId() {
 		return $this->riegoId;
 	} 
@@ -71,29 +91,31 @@ class tratamientoVO {
 		return $this->abonoId;
 	} 
 	
-	public function getPlagaId() {
-		return $this->plagaId;
+	public function getSprayId() {
+		return $this->sprayId;
 	} 
 	
-	/*public function getCosechaId() {
-		return $this->cosechaId;
-	}*/
 	public function getSemaforoId() {
 		return $this->semaforoId;
 	} 
 	
-	public function getNombre() {
-		return $this->nombre;
+	public function getDesc() {
+		return $this->desc;
 	} 
 	
-	public function getTipo() {
-		return $this->tipo;
+	public function getDate() {
+		return $this->date;
 	}  
-	
+	public function getAsignDate() {
+		return $this->asignDate;
+	}
+	public function getStatus() {
+		return $this->status;
+	} 
 }
 
 /*
-$variable = new PokemonVO();
+$variable = new tratamientoVO();
 $variable->setImagen("4.png");
 echo "HOLA" . $variable->getImagen();
 */

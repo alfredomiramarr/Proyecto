@@ -14,6 +14,7 @@ class cultivosVO {
 	private $type;
 	private $quant;
 	private $img;
+	private $status;
 	
 	//METODOS
 	
@@ -35,13 +36,17 @@ class cultivosVO {
 	public function setImg($valor) {
 		$this->img = $valor;
 	}
+	public function setStatus($valor) {
+		$this->status = $valor;
+	}
 	
-	public function setAll($id, $name, $type, $quant, $img) {
+	public function setAll($id, $name, $type, $quant, $img, $status) {
 		$this->id = $id;
 		$this->name = $name;
 		$this->type = $type;
 		$this->quant = $quant;
 		$this->img = $img;
+		$this->status = $status;
 	}
 	
 	//GET - Recuperar
@@ -63,6 +68,9 @@ class cultivosVO {
 	} 
 	public function getImg() {
 		return $this->img;
+	} 
+	public function getStatus() {
+		return $this->status;
 	} 
 	
 }

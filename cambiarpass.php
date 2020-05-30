@@ -7,8 +7,9 @@ if (isset($_POST['em'])&& ($_POST['code'])&&($_POST['pass'])&&($_POST['confpass'
 	$codigo = $_POST['code'];
 	$contra1 =$_POST['pass'];
 	$contra2 = $_POST['confpass'];
+	$seed="Somebody*1975*Else";
 	$varSalt = uniqid();
-	$contrahash = hash("sha256", $contra1.$varSalt);
+	$contrahash = hash("sha256", $contra1.$varSalt.$seed);
 
 	/*echo "Contraseña 1=...".$contra1."<br>";
 	echo "Contraseña 2=...".$contra2."<br>";

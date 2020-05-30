@@ -18,6 +18,7 @@ class userVO {
 	private $userPassword;
 	private $salt;
 	private $date;
+	private $status;
 	
 	//METODOS
 	
@@ -49,8 +50,11 @@ class userVO {
 	public function setDate($valor) {
 		$this->date = $valor;
 	}
+	public function setStatus($valor) {
+		$this->status = $valor;
+	}
 	
-	public function setAll($userId, $userType, $userName, $userLastName, $userEmail, $passReco, $userPassword, $salt, $date) {
+	public function setAll($userId, $userType, $userName, $userLastName, $userEmail, $passReco, $userPassword, $salt, $date, $status) {
 		$this->userId = $userId;
 		$this->userType = $userType;
 		$this->userName = $userName;
@@ -60,6 +64,7 @@ class userVO {
 		$this->userPassword = $userPassword;
 		$this->salt = $salt;
 		$this->date = $date;
+		$this->status = $status;
 	}
 	
 	//GET - Recuperar
@@ -97,12 +102,11 @@ class userVO {
 	public function getDate() {
 		return $this->date;
 	}  
+	public function getStatus() {
+		return $this->status;
+	}  
 	
 }
 
-/*
-$variable = new PokemonVO();
-$variable->setImagen("4.png");
-echo "HOLA" . $variable->getImagen();
-*/
+
 ?>

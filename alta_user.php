@@ -12,7 +12,7 @@
 	$email=htmlspecialchars($_POST["em"]);
 	$pass=htmlspecialchars($_POST["pass"]);
 	$passconfirm=htmlspecialchars($_POST["confpass"]);
-	$date=date("Y/M/D");
+	$seed="Somebody*1975*Else";
 
 	if(isset($_POST["sub_button"])){
 		$selected_val = ($_POST["tu"]);  // Storing Selected Value In Variable
@@ -50,7 +50,7 @@
 	$varSalt = uniqid();
 	//echo $varSalt;
 
-	$passSeguro = hash("sha256", $pass.$varSalt);
+	$passSeguro = hash("sha256", $pass.$varSalt.$seed);
 
 	//echo $nombre, $location, $tipo, $cantidad;
 
@@ -59,15 +59,23 @@
 	$objetoVO = new userVO();
 	$objetoDAO = new userDAO();
 
-	$objetoVO->setAll(0, $selected_val, $nombre, $apellido, $email, 0, $passSeguro, $varSalt, $date);
+	$objetoVO->setAll(0, $selected_val, $nombre, $apellido, $email, 0, $passSeguro, $varSalt, 0, 0);
 	$bandera=$objetoDAO->Insert($objetoVO);
 
 	if($bandera) {
-		echo "LISTO";
-		header('Location: index.php');
+		//echo "LISTO";
+		//header('Location: index.php');
+		echo '<script>
+	      alert("Registro de usuario exitoso");
+		  window.location = "home.php";
+		  </script>';
 	} else {
-		echo "Registro No inserado";
-		header('Location: new_user.php');
+		//echo "Registro No inserado";
+		//header('Location: new_user.php');
+		echo '<script>
+			      alert("Registro no exitoso.");
+				  window.history.go(-1);
+				  </script>';
 	}
 
 

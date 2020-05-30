@@ -12,6 +12,9 @@ class riegoVO {
 	private $id;
 	private $frecc;
 	private $quant;
+	private $desc;
+	private $img;
+	private $status;
 	
 	//METODOS
 	
@@ -25,11 +28,23 @@ class riegoVO {
 	public function setQuant($valor) {
 		$this->quant = $valor;
 	}	
+	public function setDesc($valor) {
+		$this->desc = $valor;
+	}	
+	public function setImg($valor) {
+		$this->img = $valor;
+	}	
+	public function setStatus($valor) {
+		$this->status = $valor;
+	}	
 	
-	public function setAll($id, $frecc, $quant) {
+	public function setAll($id, $frecc, $quant, $desc, $img, $status) {
 		$this->id = $id;
 		$this->frecc = $frecc;
 		$this->quant = $quant;
+		$this->desc = $desc;
+		$this->img = $img;
+		$this->status = $status;
 	}
 	
 	//GET - Recuperar
@@ -45,12 +60,17 @@ class riegoVO {
 	public function getQuant() {
 		return $this->quant;
 	} 
+	public function getDesc() {
+		return $this->desc;
+	} 
+	public function getImg() {
+		return $this->img;
+	} 
+	
+	public function getStatus() {
+		return $this->status;
+	} 
 	
 }
 
-/*
-$variable = new PokemonVO();
-$variable->setImagen("4.png");
-echo "HOLA" . $variable->getImagen();
-*/
 ?>

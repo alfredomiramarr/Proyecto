@@ -14,6 +14,7 @@ class cosechasVO {
 	private $cropId;
 	private $quant;
 	private $date;
+	private $status;
 	
 	//METODOS
 	
@@ -33,15 +34,18 @@ class cosechasVO {
 	public function setDate($valor) {
 		$this->date = $valor;
 	}
+	public function setStatus($valor) {
+		$this->status = $valor;
+	}
 	
-	public function setAll($id, $haciendaId, $cropId, $quant, $date) {
+	public function setAll($id, $haciendaId, $cropId, $quant, $date, $status) {
 		$this->id = $id;
 		$this->haciendaId = $haciendaId;
 		$this->cropId = $cropId;
 		$this->quant = $quant;
 		$this->date = $date;
-	}
-	
+		$this->status = $status;
+	}	
 	//GET - Recuperar
 	
 	public function getId() {
@@ -62,12 +66,19 @@ class cosechasVO {
 	public function getDate() {
 		return $this->date;
 	} 
+	public function getStatus() {
+		return $this->status;
+	} 
 	
 }
-
 /*
-$variable = new PokemonVO();
-$variable->setImagen("4.png");
-echo "HOLA" . $variable->getImagen();
-*/
+$variable = new cosechasVO();
+$variable->setAll( 122,"Hacienda","Cultivo", 12, 0, "Active");
+echo "ID <br>" . $variable->getId();
+echo "<br> HACIENDA <br>" . $variable->getHaciendaId();
+echo "<br> CULTIVO <br>" . $variable->getCropId();
+echo "<br> CANTIDAD <br>" . $variable->getQuant();
+echo "<br> FECHA <br>" . $variable->getDate();
+echo "<br> ESTATUS <br>" . $variable->getStatus();*/
+
 ?>

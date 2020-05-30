@@ -12,6 +12,7 @@ class semaforoVO {
 	private $traficId;
 	private $category;
 	private $color;
+	private $img;
 	
 	//METODOS
 	
@@ -25,13 +26,17 @@ class semaforoVO {
 	public function setColor($valor) {
 		$this->color = $valor;
 	}
+	public function setImg($valor) {
+		$this->img = $valor;
+	}
 
 
 	
-	public function setAll($traficId, $category, $color) {
+	public function setAll($traficId, $category, $color, $img) {
 		$this->traficId = $traficId;
 		$this->category = $category;
 		$this->color = $color;
+		$this->img = $img;
 	}
 	
 	//GET - Recuperar
@@ -46,6 +51,9 @@ class semaforoVO {
 	
 	public function getColor() {
 		return $this->color;
+	} 
+	public function getImg() {
+		return $this->img;
 	} 
 	
 }

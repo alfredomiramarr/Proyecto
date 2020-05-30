@@ -25,15 +25,23 @@
 	$objetoVO = new riegoVO();
 	$objetoDAO = new riegoDAO();
 
-	$objetoVO->setAll(0, $frecuencia, $quant, $desc, $imgruta);
+	$objetoVO->setAll(0, $frecuencia, $quant, $desc, $imgruta, 0);
 	$bandera=$objetoDAO->Insert($objetoVO);
 
 	if($bandera) {
 		//echo "LISTO"
-		header('Location: cat_riego.php');
+		//header('Location: cat_riego.php');
+		echo '<script>
+	      alert("Registro exitoso");
+		  window.location = "cat_riego.php";
+		  </script>';
 	} else {
 		//echo "Registro No inserado";
-		header('Location: new_riego.php');
+		//header('Location: new_riego.php');
+		echo '<script>
+			      alert("Registro no exitoso.");
+				  window.history.go(-1);
+				  </script>';
 	}
 
 ?>

@@ -23,15 +23,23 @@
 	$objetoVO = new cultivosVO();
 	$objetoDAO = new cultivosDAO();
 
-	$objetoVO->setAll(0, $nombre, $tipo, $cantidad, $imgruta);
+	$objetoVO->setAll(0, $nombre, $tipo, $cantidad, $imgruta, 0);
 	$bandera=$objetoDAO->Insert($objetoVO);
 
 	if($bandera) {
 		//echo "LISTO"
-		header('Location: cat_cultivos.php');
+		//header('Location: cat_cultivos.php');
+		echo '<script>
+	      alert("Registro exitoso");
+		  window.location = "cat_cultivos.php";
+		  </script>';
 	} else {
 		//echo "Registro No inserado";
-		header('Location: new_cultivo.php');
+		//header('Location: new_cultivo.php');
+		echo '<script>
+			      alert("Registro no exitoso.");
+				  window.history.go(-1);
+				  </script>';
 	}
 
 

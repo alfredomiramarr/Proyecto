@@ -23,7 +23,7 @@ class semaforoDAO {
 		$resultado = mysqli_query($this->conn,$sql);
 		while($fila = mysqli_fetch_assoc($resultado)) {
 			$vo = new semaforoVO();
-			$vo->setAll($fila['Trafic_Light_ID'],$fila['Category'],$fila['Color']);
+			$vo->setAll($fila['Trafic_Light_ID'],$fila['Category'],$fila['Color'],$fila['Img']);
 			$listadoVO[] = $vo;
 		}
 		if(!empty($listadoVO))

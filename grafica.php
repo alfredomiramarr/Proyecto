@@ -10,6 +10,7 @@
     min-width: 320px; 
     max-width: 660px;
     margin: 1em auto;
+    background-color: rgba(255,255,255,0.8);
 }
 
 .highcharts-data-table table {
@@ -20,6 +21,7 @@
     text-align: center;
     width: 100%;
     max-width: 500px;
+    background-color: rgba(255,255,255,0.8);
 }
 .highcharts-data-table caption {
     padding: 1em 0;
@@ -34,19 +36,22 @@
     padding: 0.5em;
 }
 .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
+    background-color: rgba(255,255,255,0.8);
 }
 .highcharts-data-table tr:hover {
-    background: #f1f7ff;
+    background-color: rgba(255,255,255,0.8);
 }
 
         </style>
     </head>
 <?php
     //require 'conexion.php';
-    require_once("include/cultivosDAO.php");
+    /*require_once("include/cultivosDAO.php");
     $dao=new cultivosDAO();
-    $todos=$dao->selectAll();
+    $todos=$dao->selectAll();*/
+    require_once("include/g3DAO.php");
+        $dao=new g3DAO();
+        $todos=$dao->selectAll();
     $contador=0;
     
     echo '
@@ -77,7 +82,7 @@ Highcharts.chart('container', {
         type: 'pie'
     },
     title: {
-        text: 'La grafica muestra el porcentaje de los cultivos sembrados en nuestra empresa, interpretando la cantidad de cada cultivo'
+        text: 'La grafica muestra el porcentaje de los cultivos cocechados en nuestra empresa, interpretando la cantidad de cada cultivo'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

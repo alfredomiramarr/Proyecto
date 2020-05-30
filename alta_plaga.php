@@ -23,15 +23,23 @@
 	$objetoVO = new plagasVO();
 	$objetoDAO = new plagasDAO();
 
-	$objetoVO->setAll(0, $nombre, $descripcion, $imgruta);
+	$objetoVO->setAll(0, $nombre, $descripcion, $imgruta, 0);
 	$bandera=$objetoDAO->Insert($objetoVO);
 
 	if($bandera) {
 		//echo "LISTO"
-		header('Location: cat_plagas.php');
+		//header('Location: cat_plagas.php');
+		echo '<script>
+	      alert("Registro exitoso");
+		  window.location = "cat_plagas.php";
+		  </script>';
 	} else {
 		//echo "Registro No inserado";
-		header('Location: new_plaga.php');
+		//header('Location: new_plaga.php');
+		echo '<script>
+			      alert("Registro no exitoso.");
+				  window.history.go(-1);
+				  </script>';
 	}
 
 ?>
